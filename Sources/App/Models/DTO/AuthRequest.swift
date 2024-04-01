@@ -29,3 +29,12 @@ struct MessageResponse: Content, WithExample {
 
     static var example: MessageResponse = .init(message: "Ok")
 }
+
+@OpenAPIDescriptable()
+/// Сообщение
+struct ForgotRequest: Content, WithExample {
+    /// Сообщение
+    let email: String
+
+    static var example: ForgotRequest = .init(email: "x@mustdev.ru")
+}

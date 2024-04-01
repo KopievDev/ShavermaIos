@@ -34,6 +34,18 @@ struct AuthController: RouteCollection {
                 responseDescription: "Success response"
             ).response(statusCode: 400, description: "Invalid username/password supplied")
 
+        api.post("forgot", use: forgotPassword)
+            .openAPI(
+                tags: .init(name: "Auth"),
+                summary: "Забыли пароль",
+                description: "Отправка нового пароля на почту",
+                body: .type(ForgotRequest.self),
+                contentType: .application(.json),
+                response: .type(MessageResponse.self),
+                responseContentType: .application(.json),
+                responseDescription: "Success response"
+            ).response(statusCode: 404, description: "Not found email")
+
         passwordProtected.get("login", use: auth)
             .openAPI(
                 tags: .init(name: "Auth"),
@@ -56,19 +68,6 @@ struct AuthController: RouteCollection {
                 contentType: .application(.json),
                 response: .type(MessageResponse.self),
                 responseContentType: .application(.json),
-                responseDescription: "Success response"
-            )
-
-        tokenProtected.get("me", use: me)
-            .openAPI(
-                tags: .init(name: "User"),
-                summary: "Профиль",
-                description: "Данные профиля",
-                headers: .all(of: .type(Headers.AccessToken.self)),
-                contentType: .application(.json),
-                response: .type(UserResponse.self),
-                responseContentType: .application(.json),
-                responseHeaders: .all(of: .type(Headers.AccessToken.self)),
                 responseDescription: "Success response"
             )
     }
@@ -109,8 +108,27 @@ struct AuthController: RouteCollection {
         return MessageResponse(message: "Ok")
     }
     
-    func me(req: Request) async throws -> UserResponse {
-        let user = try req.auth.require(User.self)
-        return UserResponse(name: user.name, familyName: user.familyName, email: user.email, phone: user.phone)
+    func forgotPassword(req: Request) async throws -> MessageResponse {
+        print("test")
+        let forgot = try req.content.decode(ForgotRequest.self)
+        let users = try await User.query(on: req.db).all()
+        guard let user = users.first(where: { $0.email == forgot.email }) else {
+            throw Abort(.notFound)
+        }
+        let newPass = generatePassword(length: 10)
+        user.password = try Bcrypt.hash(newPass)
+        try await user.save(on: req.db)
+        return .init(message: "Пароль отправлен на почту \(forgot.email) \(newPass)")
+    }
+
+    func generatePassword(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[];?><,./-="
+        var password = ""
+        for _ in 0..<length {
+            let index = Int(arc4random_uniform(UInt32(letters.count)))
+            let character = letters[letters.index(letters.startIndex, offsetBy: index)]
+            password.append(character)
+        }
+        return password
     }
 }
