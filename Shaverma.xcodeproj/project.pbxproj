@@ -50,6 +50,8 @@
 		B5D0DF202BBBEE6F00613015 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF1F2BBBEE6F00613015 /* ProductCell.swift */; };
 		B5D0DF222BBBF75300613015 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF212BBBF75300613015 /* CardCollectionView.swift */; };
 		B5D0DF242BBC0D1500613015 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF232BBC0D1500613015 /* Tabbar.swift */; };
+		B5D0DF272BBC533700613015 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF262BBC533700613015 /* NetworkService.swift */; };
+		B5D0DF292BBC536C00613015 /* ShavermaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF282BBC536C00613015 /* ShavermaAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		B5D0DF1F2BBBEE6F00613015 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B5D0DF212BBBF75300613015 /* CardCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
 		B5D0DF232BBC0D1500613015 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		B5D0DF262BBC533700613015 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B5D0DF282BBC536C00613015 /* ShavermaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShavermaAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,10 +253,20 @@
 		B5D0DF1A2BBBE4AC00613015 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B5D0DF252BBC532500613015 /* Models */,
+				B5D0DF262BBC533700613015 /* NetworkService.swift */,
+				B5D0DF282BBC536C00613015 /* ShavermaAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B5D0DF252BBC532500613015 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				B5D0DF1B2BBBE4B900613015 /* Category.swift */,
 				B5D0DF1D2BBBE79C00613015 /* Product.swift */,
 			);
-			path = Network;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +370,7 @@
 				B5D0DEE92BBBCA8700613015 /* TimeInterval.swift in Sources */,
 				B5D0DF012BBBCA9C00613015 /* UIButton.swift in Sources */,
 				B5D0DEDA2BBBC97100613015 /* Assets+Generated.swift in Sources */,
+				B5D0DF292BBC536C00613015 /* ShavermaAPI.swift in Sources */,
 				B5D0DEF72BBBCA9300613015 /* Stylable.swift in Sources */,
 				B5D0DEE72BBBCA8700613015 /* Encodable.swift in Sources */,
 				B5D0DF002BBBCA9C00613015 /* UISlider.swift in Sources */,
@@ -372,6 +387,7 @@
 				B5D0DEEF2BBBCA8C00613015 /* SmallButton.swift in Sources */,
 				B5D0DF202BBBEE6F00613015 /* ProductCell.swift in Sources */,
 				B5D0DF0E2BBBCDBE00613015 /* PageIndicator.swift in Sources */,
+				B5D0DF272BBC533700613015 /* NetworkService.swift in Sources */,
 				B5D0DEF42BBBCA9300613015 /* UIButton+Stylable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,9 +530,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XA7MY66YC7;
+				DEVELOPMENT_TEAM = ND4GF58L8N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shaverma/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -530,8 +547,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mustdev.Shaverma;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mustdev.vkr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -543,9 +561,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XA7MY66YC7;
+				DEVELOPMENT_TEAM = ND4GF58L8N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shaverma/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -559,8 +578,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mustdev.Shaverma;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mustdev.vkr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
