@@ -19,7 +19,7 @@ class TableVC: UIViewController, WithTable {
 
     lazy var tableView: UITableView = {
         $0.backgroundColor(.staticWhite).separatorStyle = .none
-        $0.register(UITableViewCell.self)
+        $0.register(ProductCell.self)
         $0.contentInset = .init(top: 8, left: 0, bottom: 76, right: 0)
         $0.scrollsToTop = true
         $0.verticalScrollIndicatorInsets.top = 8
@@ -28,47 +28,23 @@ class TableVC: UIViewController, WithTable {
 
     let category: Category
 
-    @Published var items: [String] = [
-        " text ",
-        " text 13e ",
-        " text 23e",
-        " text 23f2",
-        " text 23r2r",
-        " text 23r2",
-        " text 23r2",
-        " text ",
-        " text 13e ",
-        " text 23e",
-        " text 23f2",
-        " text 23r2r",
-        " text 23r2",
-        " text 23r2",   
-        " text ",
-        " text 13e ",
-        " text 23e",
-        " text 23f2",
-        " text 23r2r",
-        " text 23r2",
-        " text 23r2",
-        " text ",
-        " text 13e ",
-        " text 23e",
-        " text 23f2",
-        " text 23r2r",
-        " text 23r2",
-        " text 23r2",
-        " text ",
-        " text 13e ",
-        " text 23e",
-        " text 23f2",
-        " text 23r2r",
-        " text 23r2",
-        " text 23r2",
-    ]
+    @Published var items: [Product] = []
     private var subscriptions: Set<AnyCancellable> = []
 
     init(category: Category) {
         self.category = category
+        switch category.name {
+        case "Шаурма":
+            items = Product.shaverma
+        case "Закуски":
+            items = Product.zakuson
+        case "Напитки":
+            items = Product.drinks
+        case "Соусы":
+            items = Product.sauses
+        default:
+            items = Product.shaverma
+        }
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -84,8 +60,8 @@ class TableVC: UIViewController, WithTable {
             $0.edges.equalToSuperview()
         }
 
-        tableView.bind($items, cellType: UITableViewCell.self) { index, model, cell in
-            cell.textLabel?.text = model
+        tableView.bind($items, cellType: ProductCell.self) { index, model, cell in
+            cell.render(viewModel: model)
         }.store(in: &subscriptions)
     }
 }

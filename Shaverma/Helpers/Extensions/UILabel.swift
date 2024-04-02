@@ -11,7 +11,7 @@ extension UILabel {
     convenience init(
         text: String? = nil,
         font: UIFont = .systemFont(ofSize: 17),
-        textColor: UIColor = .primary,
+        textColor: UIColor = .primaryBase,
         lines: Int = 1,
         alignment: NSTextAlignment = .center
     ) {

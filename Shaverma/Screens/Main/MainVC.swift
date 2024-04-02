@@ -36,17 +36,16 @@ final class MainVC: UIViewController {
     private let pageIndicator: PageIndicator
 
     //Slide
+    private let cardCollectionView = CardCollectionView()
     private lazy var stackView = UIStackView(
         axis: .vertical,
         spacing: 8,
         arrangedSubviews: [
-            UIView(height: 200)
-                .backgroundColor(.green)
-                .cornerRadius(16)
+            cardCollectionView
         ]
     )
     private let topContentView = UIView()
-        .backgroundColor(.primary)
+        .backgroundColor(.primaryBase)
     private let blindContentView = UIView()
         .backgroundColor(.clear)
     private var topHeight: CGFloat {
@@ -100,7 +99,10 @@ private extension MainVC {
     }
 
     func setupView() {
-        view.backgroundColor = .primary
+        view.backgroundColor = .primaryBase
+        cardCollectionView.cards = [
+            .banner, .banner, .banner, .banner, .banner
+        ]
     }
 
     func addSubviews() {

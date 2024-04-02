@@ -39,7 +39,7 @@ public enum NavigationBarStyle {
         switch self {
         case .primary:
             return OpaqueBar(
-                backgroundColor: .primary,
+                backgroundColor: .primaryBase,
                 tintColor: .staticWhite,
                 textColor: .staticWhite)
         case .hidden:

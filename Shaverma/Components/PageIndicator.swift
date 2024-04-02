@@ -54,7 +54,7 @@ class PageIndicator: Component {
     }
 
    override func setupUI() {
-       backgroundColor(.primary).size(height: 56)
+       backgroundColor(.primaryBase).size(height: 56)
         [separatorView, stackView, cursorView].addOnParent(view: self)
         stackView.snp.makeConstraints { $0.edges.equalToSuperview() }
         cursorView.snp.makeConstraints {

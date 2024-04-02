@@ -12,7 +12,7 @@ extension UIButton {
     convenience init(
         text: String?,
         font: UIFont = .systemFont(ofSize: 13, weight: .regular),
-        textColor: UIColor = .primary,
+        textColor: UIColor = .primaryBase,
         backgroundColor: UIColor? = .clear
     ) {
         self.init()
