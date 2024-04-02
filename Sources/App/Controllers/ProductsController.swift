@@ -24,7 +24,6 @@ struct ProductsController: RouteCollection {
                 contentType: .application(.json),
                 response: .type([CategoriesResponse].self),
                 responseContentType: .application(.json),
-                responseHeaders: .all(of: .type(Headers.AccessToken.self)),
                 responseDescription: "Success response"
             )
 

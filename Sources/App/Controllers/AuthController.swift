@@ -30,7 +30,6 @@ struct AuthController: RouteCollection {
                 contentType: .application(.json),
                 response: .type(AuthResponse.self),
                 responseContentType: .application(.json),
-                responseHeaders: .all(of: .type(Headers.AccessToken.self)),
                 responseDescription: "Success response"
             ).response(statusCode: 400, description: "Invalid username/password supplied")
 
@@ -55,7 +54,6 @@ struct AuthController: RouteCollection {
                 contentType: .application(.json),
                 response: .type(AuthResponse.self),
                 responseContentType: .application(.json),
-                responseHeaders: .all(of: .type(Headers.AccessToken.self)),
                 responseDescription: "Success response"
             ).response(statusCode: 400, description: "Invalid username/password supplied")
 

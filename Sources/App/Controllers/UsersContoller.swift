@@ -25,7 +25,6 @@ struct UsersContoller: RouteCollection {
                 contentType: .application(.json),
                 response: .type(UserResponse.self),
                 responseContentType: .application(.json),
-                responseHeaders: .all(of: .type(Headers.AccessToken.self)),
                 responseDescription: "Success response"
             )
 
