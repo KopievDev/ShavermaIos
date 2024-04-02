@@ -45,6 +45,7 @@
 		B5D0DF142BBBD30E00613015 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = B5D0DF132BBBD30E00613015 /* SDWebImageSVGCoder */; };
 		B5D0DF162BBBD3A900613015 /* SpinerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF152BBBD3A800613015 /* SpinerView.swift */; };
 		B5D0DF182BBBD74E00613015 /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF172BBBD74E00613015 /* TableVC.swift */; };
+		B5D0DF1C2BBBE4B900613015 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF1B2BBBE4B900613015 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		B5D0DF0D2BBBCDBE00613015 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		B5D0DF152BBBD3A800613015 /* SpinerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerView.swift; sourceTree = "<group>"; };
 		B5D0DF172BBBD74E00613015 /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
+		B5D0DF1B2BBBE4B900613015 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		B5D0DEAF2BBBC67300613015 /* Shaverma */ = {
 			isa = PBXGroup;
 			children = (
+				B5D0DF1A2BBBE4AC00613015 /* Network */,
 				B5D0DED82BBBC7F200613015 /* Helpers */,
 				B5D0DEC42BBBC68700613015 /* App */,
 				B5D0DEC52BBBC69500613015 /* Screens */,
@@ -232,6 +235,14 @@
 			path = ProductTable;
 			sourceTree = "<group>";
 		};
+		B5D0DF1A2BBBE4AC00613015 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B5D0DF1B2BBBE4B900613015 /* Category.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -323,6 +334,7 @@
 				B5D0DECD2BBBC73500613015 /* MainVC.swift in Sources */,
 				B5D0DF022BBBCA9C00613015 /* UIImageView.swift in Sources */,
 				B5D0DED62BBBC7D500613015 /* NavigationBar.swift in Sources */,
+				B5D0DF1C2BBBE4B900613015 /* Category.swift in Sources */,
 				B5D0DEF52BBBCA9300613015 /* UICollectionView+Stylable.swift in Sources */,
 				B5D0DF032BBBCA9C00613015 /* UIColor.swift in Sources */,
 				B5D0DEED2BBBCA8C00613015 /* Haptic.swift in Sources */,

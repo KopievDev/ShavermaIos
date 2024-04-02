@@ -12,6 +12,7 @@ import CombineCocoa
 
 protocol WithTable: UIViewController {
     var tableView: UITableView { get }
+    var category: Category { get }
 }
 
 class TableVC: UIViewController, WithTable {
@@ -24,7 +25,9 @@ class TableVC: UIViewController, WithTable {
         $0.verticalScrollIndicatorInsets.top = 8
         return $0
     }(UITableView())
-    
+
+    let category: Category
+
     @Published var items: [String] = [
         " text ",
         " text 13e ",
@@ -63,6 +66,15 @@ class TableVC: UIViewController, WithTable {
         " text 23r2",
     ]
     private var subscriptions: Set<AnyCancellable> = []
+
+    init(category: Category) {
+        self.category = category
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError(.notImplememt)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

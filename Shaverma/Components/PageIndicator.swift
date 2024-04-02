@@ -30,7 +30,7 @@ class PageIndicator: Component {
     let selectedIndex = CurrentValueSubject<Int, Never>(0)
 
     private var subscriptions: Set<AnyCancellable> = []
-    private let viewModel: ViewModel
+    let viewModel: ViewModel
 
     init(viewModel: ViewModel = .init()) {
         self.viewModel = viewModel

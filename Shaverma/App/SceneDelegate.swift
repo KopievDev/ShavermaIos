@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        three.view.backgroundColor = .purple
 //        let four = UIViewController()
 //        four.view.backgroundColor = .green
-        window?.rootViewController = MainScreen(vcs: [TableVC(), TableVC(), TableVC(), TableVC()]).build()
+        window?.rootViewController = MainScreen(vcs: Category.categories.map(TableVC.init)).build()
         window?.makeKeyAndVisible()
     }
 }

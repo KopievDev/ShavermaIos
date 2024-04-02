@@ -33,16 +33,7 @@ final class MainVC: UIViewController {
         $0.bounces = false
         return $0
     }(UICollectionView(layout: layout))
-    private let pageIndicator = PageIndicator(
-        viewModel: .init(
-            values: [
-                .init(title: "Шаурма"),
-                .init(title: "Закуски"),
-                .init(title: "Напитки"),
-                .init(title: "Соусы")
-            ]
-        )
-    )
+    private let pageIndicator: PageIndicator
 
     //Slide
     private lazy var stackView = UIStackView(
@@ -82,6 +73,9 @@ final class MainVC: UIViewController {
         self.viewModel = viewModel
         self.router = router
         self.viewControllers = viewModel.vcs
+        self.pageIndicator = PageIndicator(
+            viewModel: .init(values: viewModel.vcs.map { .init(title: $0.category.name) } )
+        )
         super.init(nibName: nil, bundle: nil)
         self.router.vc = self
     }
