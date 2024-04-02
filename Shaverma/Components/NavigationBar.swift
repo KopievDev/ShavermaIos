@@ -121,8 +121,8 @@ public class OpaqueBar: NavigationBarConfiguration {
         appearance.shadowColor = nil
         appearance.backgroundColor = backgroundColor
         appearance.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
-//        appearance.largeTitleTextAttributes = [.font: VeloFont.regular(28).font, .foregroundColor: textColor]
-//        appearance.titleTextAttributes = [.font: VeloFont.regular(20).font, .foregroundColor: textColor]
+        appearance.largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 28, weight: .bold), .foregroundColor: textColor]
+        appearance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 16, weight: .bold), .foregroundColor: textColor]
         viewController.navigationItem.standardAppearance = appearance
         viewController.navigationItem.scrollEdgeAppearance = appearance
         viewController.navigationController?.navigationBar.tintColor = tintColor

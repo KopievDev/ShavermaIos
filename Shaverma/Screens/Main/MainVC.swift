@@ -36,13 +36,18 @@ final class MainVC: UIViewController {
     private let pageIndicator: PageIndicator
 
     //Slide
+    private let titleLabel = UILabel(
+        text: "Акции",
+        font: .systemFont(ofSize: 16, weight: .bold),
+        textColor: .staticWhite,
+        lines: 0,
+        alignment: .left
+    )
     private let cardCollectionView = CardCollectionView()
     private lazy var stackView = UIStackView(
         axis: .vertical,
         spacing: 8,
-        arrangedSubviews: [
-            cardCollectionView
-        ]
+        arrangedSubviews: [titleLabel, cardCollectionView]
     )
     private let topContentView = UIView()
         .backgroundColor(.primaryBase)
@@ -99,6 +104,8 @@ private extension MainVC {
     }
 
     func setupView() {
+        title = "Меню"
+        table = viewModel.vcs.first?.tableView
         view.backgroundColor = .primaryBase
         cardCollectionView.cards = [
             .banner, .banner, .banner, .banner, .banner

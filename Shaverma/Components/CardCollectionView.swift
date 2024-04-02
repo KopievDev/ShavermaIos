@@ -26,7 +26,7 @@ final class CardCollectionView: Component {
     private var subscriptions: Set<AnyCancellable> = []
 
    override func setupUI() {
-        snp.makeConstraints { $0.height.equalTo(UIScreen.main.bounds.width*0.5) }
+        snp.makeConstraints { $0.height.equalTo(UIScreen.main.bounds.width*0.46) }
         backgroundColor(.clear)
         [collectionView].addOnParent(view: self)
         collectionView.snp.makeConstraints { $0.edges.equalToSuperview() }
