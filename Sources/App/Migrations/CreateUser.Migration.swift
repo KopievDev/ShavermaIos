@@ -25,7 +25,24 @@ extension User {
         }
 
         func revert(on database: Database) async throws {
-            try await database.schema("users").delete()
+            try await database.schema(User.schema).delete()
+        }
+    }
+}
+
+
+extension User {
+    struct AddRoleMigration: AsyncMigration {
+        var name: String { "AddRoleToUser" }
+
+        func prepare(on database: Database) async throws {
+            try await database.schema(User.schema)
+                .field("role", .string)
+                .update()
+        }
+
+        func revert(on database: Database) async throws {
+            try await database.schema(User.schema).deleteField("role").update()
         }
     }
 }

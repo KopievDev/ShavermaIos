@@ -9,6 +9,10 @@ import Vapor
 import Fluent
 import Foundation
 
+enum Role: String, Codable {
+    case admin, client
+}
+
 final class User: Model, Content {
     static var schema: String = "users"
 
@@ -24,6 +28,8 @@ final class User: Model, Content {
     var familyName: String?
     @Field(key: "phone")
     var phone: String?
+    @OptionalEnum(key: "role")
+    var role: Role?
 
     required init() { }
 
@@ -33,7 +39,8 @@ final class User: Model, Content {
         password: String,
         name: String,
         familyName: String? = nil,
-        phone: String? = nil
+        phone: String? = nil,
+        role: Role? = nil
     ) {
         self.id = id
         self.email = email
@@ -41,6 +48,7 @@ final class User: Model, Content {
         self.name = name
         self.familyName = familyName
         self.phone = phone
+        self.role = role
     }
 }
 

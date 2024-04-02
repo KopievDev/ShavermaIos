@@ -22,7 +22,7 @@ extension UserToken {
         }
 
         func revert(on database: Database) async throws {
-            try await database.schema("user_tokens").delete()
+            try await database.schema(UserToken.schema).delete()
         }
     }
 }

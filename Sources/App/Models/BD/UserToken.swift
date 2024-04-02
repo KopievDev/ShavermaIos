@@ -35,8 +35,5 @@ extension UserToken: ModelTokenAuthenticatable {
 
     var isValid: Bool {
         true
-//        let earth = try await UserToken.query(on: database)
-//            .filter(\.$name == "Earth")
-//            .first()
     }
 }
