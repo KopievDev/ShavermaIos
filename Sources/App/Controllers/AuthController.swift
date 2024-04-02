@@ -107,7 +107,6 @@ struct AuthController: RouteCollection {
     }
     
     func forgotPassword(req: Request) async throws -> MessageResponse {
-        print("test")
         let forgot = try req.content.decode(ForgotRequest.self)
         let users = try await User.query(on: req.db).all()
         guard let user = users.first(where: { $0.email == forgot.email }) else {
@@ -123,7 +122,7 @@ struct AuthController: RouteCollection {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[];?><,./-="
         var password = ""
         for _ in 0..<length {
-            let index = Int(arc4random_uniform(UInt32(letters.count)))
+            let index = Int.random(in: 0...length)
             let character = letters[letters.index(letters.startIndex, offsetBy: index)]
             password.append(character)
         }
