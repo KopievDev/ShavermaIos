@@ -1,0 +1,15 @@
+xcassets:
+  - inputs: Shaverma/Resources/Assets.xcassets
+    outputs:
+      - templateName: swift5
+        output: Shaverma/Resources/Assets+Generated.swift
+        params:
+          enumName: Assets
+#fonts:
+#  - inputs: VeLo Player/Resources/Fonts
+#    outputs:
+#        - templateName: swift5
+#          output: VeLo Player/Resources/Fonts/Fonts.swift
+
+## For more info, use `swiftgen config doc` to open the full documentation on GitHub.
+## https://github.com/SwiftGen/SwiftGen/tree/6.5.1/Documentation/
