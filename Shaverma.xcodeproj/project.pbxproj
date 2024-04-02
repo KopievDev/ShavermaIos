@@ -49,6 +49,7 @@
 		B5D0DF1E2BBBE79C00613015 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF1D2BBBE79C00613015 /* Product.swift */; };
 		B5D0DF202BBBEE6F00613015 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF1F2BBBEE6F00613015 /* ProductCell.swift */; };
 		B5D0DF222BBBF75300613015 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF212BBBF75300613015 /* CardCollectionView.swift */; };
+		B5D0DF242BBC0D1500613015 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF232BBC0D1500613015 /* Tabbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		B5D0DF1D2BBBE79C00613015 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B5D0DF1F2BBBEE6F00613015 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B5D0DF212BBBF75300613015 /* CardCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
+		B5D0DF232BBC0D1500613015 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				B5D0DF092BBBCD5100613015 /* Launch */,
 				B5D0DECF2BBBC73B00613015 /* Main */,
 				B5D0DF192BBBE46200613015 /* ProductTable */,
+				B5D0DF232BBC0D1500613015 /* Tabbar.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				B5D0DECD2BBBC73500613015 /* MainVC.swift in Sources */,
 				B5D0DF022BBBCA9C00613015 /* UIImageView.swift in Sources */,
 				B5D0DED62BBBC7D500613015 /* NavigationBar.swift in Sources */,
+				B5D0DF242BBC0D1500613015 /* Tabbar.swift in Sources */,
 				B5D0DF1C2BBBE4B900613015 /* Category.swift in Sources */,
 				B5D0DEF52BBBCA9300613015 /* UICollectionView+Stylable.swift in Sources */,
 				B5D0DF032BBBCA9C00613015 /* UIColor.swift in Sources */,

@@ -15,6 +15,8 @@ struct MainScreen: Screen {
         let viewModel = MainViewModel(vcs: vcs)
         let router = MainRouter()
         let vc = MainVC(viewModel: viewModel, router: router)
+        vc.tabBarItem.image = .doc
+
 //        vc.hidesBottomBarWhenPushed = true
         return vc
     }
