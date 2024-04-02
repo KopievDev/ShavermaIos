@@ -8,7 +8,6 @@
 import Foundation
 import Vapor
 import VaporToOpenAPI
-import SwiftSMTP
 
 struct UsersContoller: RouteCollection {
 
