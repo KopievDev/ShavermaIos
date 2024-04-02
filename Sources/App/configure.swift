@@ -14,10 +14,11 @@ public func configure(_ app: Application) async throws {
     )
 
     app.databases.use(.sqlite(.file("db.sqlite")), as: .sqlite)
-    
 
     app.migrations.add(User.Migration())
+    app.migrations.add(User.AddRoleMigration())
     app.migrations.add(UserToken.Migration())
+    app.migrations.add(Categoties.Migration())
 //    try await app.autoMigrate()
 
     let encoder = JSONEncoder()

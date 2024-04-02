@@ -8,4 +8,5 @@ func routes(_ app: Application) throws {
     try app.register(collection: OpenAPIController())
     try app.register(collection: AuthController(app: app))
     try app.register(collection: UsersContoller(tokenProtected: tokenProtected))
+    try app.register(collection: ProductsController(tokenProtected: tokenProtected))
 }
