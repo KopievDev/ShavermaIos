@@ -143,7 +143,7 @@
 			children = (
 				B5D0DF092BBBCD5100613015 /* Launch */,
 				B5D0DECF2BBBC73B00613015 /* Main */,
-				B5D0DF172BBBD74E00613015 /* TableVC.swift */,
+				B5D0DF192BBBE46200613015 /* ProductTable */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -222,6 +222,14 @@
 				B5D0DEBB2BBBC67400613015 /* LaunchScreen.storyboard */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		B5D0DF192BBBE46200613015 /* ProductTable */ = {
+			isa = PBXGroup;
+			children = (
+				B5D0DF172BBBD74E00613015 /* TableVC.swift */,
+			);
+			path = ProductTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

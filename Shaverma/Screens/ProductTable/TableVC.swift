@@ -1,5 +1,5 @@
 //
-//  TableVC.swift
+//  ProductTable.swift
 //  Shaverma
 //
 //  Created by Иван Копиев on 02.04.2024.
