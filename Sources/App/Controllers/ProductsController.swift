@@ -64,11 +64,16 @@ struct ProductsController: RouteCollection {
     func products(req: Request) async throws -> [ProductsResponse] {
         _ = try req.auth.require(User.self)
         let products = try await Products.query(on: req.db).all()
+        for product in products {
+            product.image = "https://mustdev.ru/vkr/sh1.png"
+            try await product.save(on: req.db)
+        }
         return products.map {
             ProductsResponse(
                 id: $0.id ?? .generateRandom(),
                 name: $0.name,
                 desc: $0.desc,
+                imageUrl: $0.image,
                 price: $0.price,
                 category: $0.$category.id
             )
@@ -104,6 +109,7 @@ struct ProductsController: RouteCollection {
             id: product.requireID(),
             name: product.name,
             desc: product.desc,
+            imageUrl: product.image,
             price: product.price,
             category: category.requireID()
         )

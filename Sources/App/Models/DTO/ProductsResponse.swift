@@ -19,6 +19,8 @@ struct ProductsResponse: Content, WithExample {
     let name: String
     /// Описание продукта
     let desc: String
+    /// Изображение продукта
+    let imageUrl: String?
     /// Стоимость в копейках
     let price: Decimal
     /// Категория продукта
@@ -28,6 +30,7 @@ struct ProductsResponse: Content, WithExample {
         id: .generateRandom(),
         name: "Шаурма",
         desc: "Из котят",
+        imageUrl: "https://mustdev.ru/vkr/sh1.png",
         price: 19900,
         category: .generateRandom()
     )
@@ -40,6 +43,8 @@ struct ProductsRequest: Content, WithExample {
     let name: String
     /// Описание продукта
     let desc: String
+    /// Изображение продукта
+    let imageUrl: String?
     /// Стоимость в копейках
     let price: Decimal
     /// Категория продукта
@@ -48,6 +53,7 @@ struct ProductsRequest: Content, WithExample {
     static var example: ProductsRequest = .init(
         name: "Шаурма",
         desc: "Из котят",
+        imageUrl: "https://mustdev.ru/vkr/sh1.png",
         price: 19900,
         category: .generateRandom()
     )

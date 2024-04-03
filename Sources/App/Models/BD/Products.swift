@@ -17,6 +17,8 @@ final class Products: Model, Content {
     var name: String
     @Field(key: "desc")
     var desc: String
+    @Field(key: "image")
+    var image: String?
     @Field(key: "price")
     var price: Decimal
     @Parent(key: "category_id")
@@ -60,3 +62,19 @@ extension Products {
     }
 }
 
+// MARK: - Migration -
+extension Products {
+    struct AddImageMigration: AsyncMigration {
+        var name: String { "AddImageToProduct" }
+
+        func prepare(on database: Database) async throws {
+            try await database.schema(Products.schema)
+                .field("image", .string)
+                .update()
+        }
+
+        func revert(on database: Database) async throws {
+            try await database.schema(Products.schema).deleteField("image").update()
+        }
+    }
+}

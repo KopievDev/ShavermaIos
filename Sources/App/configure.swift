@@ -20,7 +20,7 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(UserToken.Migration())
     app.migrations.add(Categoties.Migration())
     app.migrations.add(Products.Migration())
-
+    app.migrations.add(Products.AddImageMigration())
     try await app.autoMigrate()
 
     let encoder = JSONEncoder()
