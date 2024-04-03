@@ -19,7 +19,9 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(User.AddRoleMigration())
     app.migrations.add(UserToken.Migration())
     app.migrations.add(Categoties.Migration())
-//    try await app.autoMigrate()
+    app.migrations.add(Products.Migration())
+
+    try await app.autoMigrate()
 
     let encoder = JSONEncoder()
     encoder.outputFormatting = .sortedKeys
