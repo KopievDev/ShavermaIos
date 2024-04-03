@@ -53,6 +53,18 @@ struct ProductsController: RouteCollection {
                 responseContentType: .application(.json),
                 responseDescription: "Success response"
             )
+        productRoute.get(":id", use: productForCategoryID)
+            .openAPI(
+                tags: .init(name: "Products"),
+                summary: "Продукты категории",
+                description: "Продукты опредененной категории",
+                headers: .all(of: .type(Headers.AccessToken.self)),
+                path: .schema(.uuid),
+                contentType: .application(.json),
+                response: .type([ProductsResponse].self),
+                responseContentType: .application(.json),
+                responseDescription: "Success response"
+            )
     }
 
     func categories(req: Request) async throws -> [CategoriesResponse] {
@@ -71,6 +83,28 @@ struct ProductsController: RouteCollection {
         return products.map {
             ProductsResponse(
                 id: $0.id ?? .generateRandom(),
+                name: $0.name,
+                desc: $0.desc,
+                imageUrl: $0.image,
+                price: $0.price,
+                category: $0.$category.id
+            )
+        }
+    }
+
+    func productForCategoryID(req: Request) async throws -> [ProductsResponse] {
+        let user = try req.auth.require(User.self)
+        guard let categoryId = req.parameters.get("id"), let id = UUID(uuidString: categoryId) else {
+            throw Abort(.custom(code: 404, reasonPhrase: "Нет такой категории"))
+        }
+        let products = try await Products
+            .query(on: req.db)
+            .filter(\.$category.$id == id)
+            .all()
+
+        return try products.map {
+            ProductsResponse(
+                id: try $0.requireID(),
                 name: $0.name,
                 desc: $0.desc,
                 imageUrl: $0.image,
