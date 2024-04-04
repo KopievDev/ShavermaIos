@@ -38,7 +38,7 @@ final class MainVC: UIViewController {
     //Slide
     private let titleLabel = UILabel(
         text: "Акции",
-        font: .systemFont(ofSize: 16, weight: .bold),
+        font: .bold(16),
         textColor: .staticWhite,
         lines: 0,
         alignment: .left

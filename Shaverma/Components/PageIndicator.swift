@@ -79,8 +79,8 @@ class PageIndicator: Component {
                 .sink { isSelected in
                     UIView.animate(withDuration: 0.3) {
                         button.titleLabel?.font = isSelected
-                            ? .systemFont(ofSize: 17, weight: .bold)
-                            : .systemFont(ofSize: 16, weight: .regular)
+                            ? MonserratFont.bold(17).font
+                            : MonserratFont.regular(16).font
                     }
                 }.store(in: &subscriptions)
         }
@@ -140,7 +140,7 @@ class PageButton: UIButton {
     }
 
     func commonInit() {
-        titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+        titleLabel?.font = MonserratFont.regular(16).font
         setTitleColor(.staticWhite, for: .selected)
         setTitleColor(.secondaryText, for: .normal)
     }

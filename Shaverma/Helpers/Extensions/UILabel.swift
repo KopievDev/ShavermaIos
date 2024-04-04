@@ -22,4 +22,19 @@ extension UILabel {
         self.textAlignment = alignment
         self.textColor = textColor
     }
+
+    convenience init(
+        text: String? = nil,
+        font: MonserratFont = .regular(17),
+        textColor: UIColor = .primaryBase,
+        lines: Int = 1,
+        alignment: NSTextAlignment = .center
+    ) {
+        self.init()
+        self.text = text
+        self.font = font.font
+        self.numberOfLines = lines
+        self.textAlignment = alignment
+        self.textColor = textColor
+    }
 }

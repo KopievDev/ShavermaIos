@@ -16,8 +16,13 @@ struct MainScreen: Screen {
         let router = MainRouter()
         let vc = MainVC(viewModel: viewModel, router: router)
         vc.tabBarItem.image = .doc
-
-//        vc.hidesBottomBarWhenPushed = true
+        vc.navigationItem.titleView = UILabel(
+            text: "Меню",
+            font: .bold(16),
+            textColor: .staticWhite,
+            lines: 0,
+            alignment: .left
+        )
         return vc
     }
 }

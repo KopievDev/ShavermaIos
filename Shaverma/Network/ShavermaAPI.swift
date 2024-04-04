@@ -10,7 +10,7 @@ import Foundation
 struct ShavermaAPI {
 
     var token = "oRyL1YTgXcocQNE4WBPJJQ=="
-    private var baseUrl: String { "http://194.87.98.249:8080/api/v1/" }
+    private var baseUrl: String { "http://45.82.153.105:8080/api/v1/" }
 
     private let network = BaseNetworkService(
         session: URLSession(configuration: .default)

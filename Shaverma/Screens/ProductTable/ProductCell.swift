@@ -23,7 +23,7 @@ final class ProductCell: BaseCell<Product> {
 
     private let titleLabel = UILabel(
         text: "Шаурма",
-        font: .systemFont(ofSize: 16, weight: .bold),
+        font: .bold(16),
         textColor: .staticWhite,
         lines: 0,
         alignment: .left
@@ -31,7 +31,7 @@ final class ProductCell: BaseCell<Product> {
 
     private let descLabel = UILabel(
         text: "Самая вкусная на гриле!\nСвежий вкус для свежего дыхания",
-        font: .systemFont(ofSize: 11, weight: .regular),
+        font: .regular(11),
         textColor: .secondaryText,
         lines: 0,
         alignment: .left
@@ -82,7 +82,7 @@ private extension ProductCell {
     func setupUI() {
         [formView].addOnParent(view: contentView)
         formView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(8)
+            $0.top.bottom.equalToSuperview().inset(4)
             $0.left.right.equalToSuperview().inset(16)
         }
         [imgView, textStack, priceStack].addOnParent(view: formView)
