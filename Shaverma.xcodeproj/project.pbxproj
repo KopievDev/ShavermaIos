@@ -72,6 +72,11 @@
 		B5D0DF4E2BBEE52400613015 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5D0DF302BBEE51D00613015 /* MontserratAlternates-SemiBold.ttf */; };
 		B5D0DF502BBEE76800613015 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF4F2BBEE76800613015 /* Fonts.swift */; };
 		B5D0DF522BBEE7B500613015 /* MonserratFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF512BBEE7B500613015 /* MonserratFont.swift */; };
+		B5D0DF5A2BBEEB8700613015 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF562BBEEB8700613015 /* AuthRouter.swift */; };
+		B5D0DF5B2BBEEB8700613015 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF572BBEEB8700613015 /* AuthScreen.swift */; };
+		B5D0DF5C2BBEEB8700613015 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF582BBEEB8700613015 /* AuthVC.swift */; };
+		B5D0DF5D2BBEEB8700613015 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF592BBEEB8700613015 /* AuthViewModel.swift */; };
+		B5D0DF602BBEEC7100613015 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DF5F2BBEEC7100613015 /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +144,11 @@
 		B5D0DF3C2BBEE51E00613015 /* MontserratAlternates-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ThinItalic.ttf"; sourceTree = "<group>"; };
 		B5D0DF4F2BBEE76800613015 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B5D0DF512BBEE7B500613015 /* MonserratFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonserratFont.swift; sourceTree = "<group>"; };
+		B5D0DF562BBEEB8700613015 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		B5D0DF572BBEEB8700613015 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
+		B5D0DF582BBEEB8700613015 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		B5D0DF592BBEEB8700613015 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		B5D0DF5F2BBEEC7100613015 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +209,8 @@
 				B5D0DF092BBBCD5100613015 /* Launch */,
 				B5D0DECF2BBBC73B00613015 /* Main */,
 				B5D0DF192BBBE46200613015 /* ProductTable */,
-				B5D0DF232BBC0D1500613015 /* Tabbar.swift */,
+				B5D0DF532BBEEB6B00613015 /* Tabbar */,
+				B5D0DF5E2BBEEB8B00613015 /* Auth */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -235,6 +246,7 @@
 				B5D0DF152BBBD3A800613015 /* SpinerView.swift */,
 				B5D0DF0A2BBBCDBD00613015 /* PageIndicator.swift */,
 				B5D0DED52BBBC7D500613015 /* NavigationBar.swift */,
+				B5D0DF5F2BBEEC7100613015 /* TextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -337,6 +349,25 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		B5D0DF532BBEEB6B00613015 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B5D0DF232BBC0D1500613015 /* Tabbar.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		B5D0DF5E2BBEEB8B00613015 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B5D0DF562BBEEB8700613015 /* AuthRouter.swift */,
+				B5D0DF572BBEEB8700613015 /* AuthScreen.swift */,
+				B5D0DF582BBEEB8700613015 /* AuthVC.swift */,
+				B5D0DF592BBEEB8700613015 /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D0DF5C2BBEEB8700613015 /* AuthVC.swift in Sources */,
 				B5D0DF182BBBD74E00613015 /* TableVC.swift in Sources */,
 				B5D0DED42BBBC7A400613015 /* Navigator.swift in Sources */,
 				B5D0DF522BBEE7B500613015 /* MonserratFont.swift in Sources */,
@@ -448,11 +480,13 @@
 				B5D0DF022BBBCA9C00613015 /* UIImageView.swift in Sources */,
 				B5D0DED62BBBC7D500613015 /* NavigationBar.swift in Sources */,
 				B5D0DF242BBC0D1500613015 /* Tabbar.swift in Sources */,
+				B5D0DF5B2BBEEB8700613015 /* AuthScreen.swift in Sources */,
 				B5D0DF1C2BBBE4B900613015 /* Category.swift in Sources */,
 				B5D0DEF52BBBCA9300613015 /* UICollectionView+Stylable.swift in Sources */,
 				B5D0DF032BBBCA9C00613015 /* UIColor.swift in Sources */,
 				B5D0DEED2BBBCA8C00613015 /* Haptic.swift in Sources */,
 				B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */,
+				B5D0DF602BBEEC7100613015 /* TextField.swift in Sources */,
 				B5D0DF042BBBCA9C00613015 /* UIPasteboard.swift in Sources */,
 				B5D0DEE92BBBCA8700613015 /* TimeInterval.swift in Sources */,
 				B5D0DF502BBEE76800613015 /* Fonts.swift in Sources */,
@@ -465,6 +499,7 @@
 				B5D0DEFF2BBBCA9C00613015 /* UILabel.swift in Sources */,
 				B5D0DEB32BBBC67300613015 /* SceneDelegate.swift in Sources */,
 				B5D0DF222BBBF75300613015 /* CardCollectionView.swift in Sources */,
+				B5D0DF5A2BBEEB8700613015 /* AuthRouter.swift in Sources */,
 				B5D0DF162BBBD3A900613015 /* SpinerView.swift in Sources */,
 				B5D0DECB2BBBC73500613015 /* MainRouter.swift in Sources */,
 				B5D0DF1E2BBBE79C00613015 /* Product.swift in Sources */,
@@ -472,6 +507,7 @@
 				B5D0DF052BBBCA9C00613015 /* UIStackView.swift in Sources */,
 				B5D0DEF62BBBCA9300613015 /* UIView+Stylable.swift in Sources */,
 				B5D0DECE2BBBC73500613015 /* MainViewModel.swift in Sources */,
+				B5D0DF5D2BBEEB8700613015 /* AuthViewModel.swift in Sources */,
 				B5D0DEEF2BBBCA8C00613015 /* SmallButton.swift in Sources */,
 				B5D0DF202BBBEE6F00613015 /* ProductCell.swift in Sources */,
 				B5D0DF0E2BBBCDBE00613015 /* PageIndicator.swift in Sources */,
