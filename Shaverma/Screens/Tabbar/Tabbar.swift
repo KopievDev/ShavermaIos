@@ -12,7 +12,7 @@ struct TabbarScreen: Screen {
         Tabbar(vcs: [
             MainScreen(vcs: Category.categories.map(TableVC.init)).withStack(configurator: NavigationBarStyle.primary.configuration),
             AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration),
-            MainScreen(vcs: Category.categories.map(TableVC.init)).withStack(configurator: NavigationBarStyle.primary.configuration),
+            ProfileScreen().withStack(configurator: NavigationBarStyle.primary.configuration),
             MainScreen(vcs: Category.categories.map(TableVC.init)).withStack(configurator: NavigationBarStyle.primary.configuration)
         ])
     }

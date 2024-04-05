@@ -10,6 +10,10 @@
 		B58056152BBFBF5C000374E9 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056142BBFBF5C000374E9 /* Toast.swift */; };
 		B58056182BBFC47D000374E9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056172BBFC47D000374E9 /* Preferences.swift */; };
 		B580561A2BBFC4CF000374E9 /* PreferencesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056192BBFC4CF000374E9 /* PreferencesKey.swift */; };
+		B58056202BBFD5C6000374E9 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580561C2BBFD5C6000374E9 /* ProfileRouter.swift */; };
+		B58056212BBFD5C6000374E9 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580561D2BBFD5C6000374E9 /* ProfileScreen.swift */; };
+		B58056222BBFD5C6000374E9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580561E2BBFD5C6000374E9 /* ProfileVC.swift */; };
+		B58056232BBFD5C6000374E9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580561F2BBFD5C6000374E9 /* ProfileViewModel.swift */; };
 		B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB02BBBC67300613015 /* AppDelegate.swift */; };
 		B5D0DEB32BBBC67300613015 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */; };
 		B5D0DEBA2BBBC67400613015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D0DEB92BBBC67400613015 /* Assets.xcassets */; };
@@ -86,6 +90,10 @@
 		B58056142BBFBF5C000374E9 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		B58056172BBFC47D000374E9 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		B58056192BBFC4CF000374E9 /* PreferencesKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesKey.swift; sourceTree = "<group>"; };
+		B580561C2BBFD5C6000374E9 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		B580561D2BBFD5C6000374E9 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		B580561E2BBFD5C6000374E9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		B580561F2BBFD5C6000374E9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B5D0DEAD2BBBC67300613015 /* Shaverma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaverma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D0DEB02BBBC67300613015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +188,17 @@
 			path = Preference;
 			sourceTree = "<group>";
 		};
+		B580561B2BBFD5BC000374E9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B580561C2BBFD5C6000374E9 /* ProfileRouter.swift */,
+				B580561D2BBFD5C6000374E9 /* ProfileScreen.swift */,
+				B580561E2BBFD5C6000374E9 /* ProfileVC.swift */,
+				B580561F2BBFD5C6000374E9 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B5D0DEA42BBBC67300613015 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +240,7 @@
 		B5D0DEC52BBBC69500613015 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B580561B2BBFD5BC000374E9 /* Profile */,
 				B5D0DF092BBBCD5100613015 /* Launch */,
 				B5D0DECF2BBBC73B00613015 /* Main */,
 				B5D0DF192BBBE46200613015 /* ProductTable */,
@@ -488,6 +508,7 @@
 				B5D0DF182BBBD74E00613015 /* TableVC.swift in Sources */,
 				B5D0DED42BBBC7A400613015 /* Navigator.swift in Sources */,
 				B5D0DF522BBEE7B500613015 /* MonserratFont.swift in Sources */,
+				B58056222BBFD5C6000374E9 /* ProfileVC.swift in Sources */,
 				B5D0DEE82BBBCA8700613015 /* Int.swift in Sources */,
 				B5D0DEEE2BBBCA8C00613015 /* Collection+UIView.swift in Sources */,
 				B5D0DEE62BBBCA8700613015 /* String.swift in Sources */,
@@ -507,10 +528,12 @@
 				B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */,
 				B5D0DF602BBEEC7100613015 /* TextField.swift in Sources */,
 				B5D0DF042BBBCA9C00613015 /* UIPasteboard.swift in Sources */,
+				B58056202BBFD5C6000374E9 /* ProfileRouter.swift in Sources */,
 				B5D0DEE92BBBCA8700613015 /* TimeInterval.swift in Sources */,
 				B5D0DF502BBEE76800613015 /* Fonts.swift in Sources */,
 				B5D0DF012BBBCA9C00613015 /* UIButton.swift in Sources */,
 				B5D0DEDA2BBBC97100613015 /* Assets+Generated.swift in Sources */,
+				B58056232BBFD5C6000374E9 /* ProfileViewModel.swift in Sources */,
 				B5D0DF292BBC536C00613015 /* ShavermaAPI.swift in Sources */,
 				B5D0DEF72BBBCA9300613015 /* Stylable.swift in Sources */,
 				B5D0DEE72BBBCA8700613015 /* Encodable.swift in Sources */,
@@ -525,6 +548,7 @@
 				B5D0DF1E2BBBE79C00613015 /* Product.swift in Sources */,
 				B5D0DEE52BBBCA8700613015 /* Sequence.swift in Sources */,
 				B5D0DF052BBBCA9C00613015 /* UIStackView.swift in Sources */,
+				B58056212BBFD5C6000374E9 /* ProfileScreen.swift in Sources */,
 				B5D0DEF62BBBCA9300613015 /* UIView+Stylable.swift in Sources */,
 				B5D0DECE2BBBC73500613015 /* MainViewModel.swift in Sources */,
 				B5D0DF5D2BBEEB8700613015 /* AuthViewModel.swift in Sources */,
