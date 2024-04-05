@@ -10,6 +10,7 @@ import UIKit
 final class AuthRouter: Router {
     weak var vc: AuthVC?
 
-    func routeToSomeScreen() {
+    func routeToMain() {
+        Navigator.shared.makeRoot(screen: TabbarScreen())
     }
 }

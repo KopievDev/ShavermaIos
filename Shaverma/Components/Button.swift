@@ -56,7 +56,7 @@ private extension Button {
         setTitleColor(.staticWhite, for: .disabled)
         [spin, imgView].addOnParent(view: self)
         translatesAutoresizingMaskIntoConstraints = false
-        size(height: 46).cornerRadius(23)
+        size(height: 52).cornerRadius(16)
         setTitleColor(viewModel.textColor, for: .normal)
         titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
         imgView.tintColor(viewModel.textColor)
@@ -102,7 +102,7 @@ private extension Button {
             .store(in: &subscriptions)
 
         viewModel.$corners
-            .sink { [weak self] corners in self?.corners(corners, radius: 23) }
+            .sink { [weak self] corners in self?.corners(corners, radius: 16) }
             .store(in: &subscriptions)
 
         viewModel.$icon

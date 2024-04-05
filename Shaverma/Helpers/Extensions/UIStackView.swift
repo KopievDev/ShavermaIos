@@ -52,4 +52,19 @@ extension UIStackView {
             self.addArrangedSubview(views: arrangedSubviews)
         }
     }
+
+//    convenience init(
+//        axis: NSLayoutConstraint.Axis,
+//        alignment: UIStackView.Alignment = .fill,
+//        distribution: UIStackView.Distribution = .fill,
+//        spacing: CGFloat = 0,
+//        subviews: @autoclosure () -> [UIView]
+//    ) {
+//        self.init()
+//        self.axis = axis
+//        self.alignment = alignment
+//        self.distribution = distribution
+//        self.spacing = spacing
+//        self.addArrangedSubview(views: subviews())
+//    }
 }

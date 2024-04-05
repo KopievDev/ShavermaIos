@@ -21,3 +21,15 @@ extension Data {
         return prettyJSON
     }
 }
+
+import UIKit
+import Combine
+import CombineCocoa
+
+extension UIViewController {
+
+    func withCloseKeyboardWhenTap() -> AnyCancellable {
+        view.gesture()
+            .sink(weakObject: self) { vc, _ in vc?.view.endEditing(true) }
+    }
+}

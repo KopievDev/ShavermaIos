@@ -18,6 +18,38 @@
             endingLineNumber = "17"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB38EB86-ED2B-4479-A515-C7218092A8D5 - 85f05cfa89dee6c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in Shaverma.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/App/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "EB38EB86-ED2B-4479-A515-C7218092A8D5 - 85f05cfa89dee6c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in Shaverma.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/App/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -109,6 +141,133 @@
                   startingLineNumber = "16"
                   endingLineNumber = "16"
                   offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "F26DA0B7-1552-48E3-AC83-7DE3874879CE - 50383395bf2c94d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in Shaverma.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/App/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CBD386E7-CDEB-4D9D-8E5D-BE0FD3C68894"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shaverma/Components/TextField.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "render(isValid:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD9593FB-FE86-4625-887E-360B8E4B5D02"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shaverma/Components/TextField.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "bind()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BD9593FB-FE86-4625-887E-360B8E4B5D02 - 2566b8e29128338d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.String) -&gt; () in Shaverma.TextField.bind() -&gt; ()"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/Components/TextField.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "BD9593FB-FE86-4625-887E-360B8E4B5D02 - 2566b8e2912833e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.String) -&gt; () in Shaverma.TextField.bind() -&gt; ()"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/Components/TextField.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F37F27D1-A147-4D1D-91DF-48F46E5A2C86"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shaverma/Components/TextField.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "didEnter(text:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F37F27D1-A147-4D1D-91DF-48F46E5A2C86 - e7e0611612dc556"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shaverma.EmailValidator.didEnter(text: Swift.String) -&gt; Swift.Optional&lt;Swift.Bool&gt;"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/Components/TextField.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "F37F27D1-A147-4D1D-91DF-48F46E5A2C86 - e7e0611612dc594"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shaverma.EmailValidator.didEnter(text: Swift.String) -&gt; Swift.Optional&lt;Swift.Bool&gt;"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/Components/TextField.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "92">
                </Location>
             </Locations>
          </BreakpointContent>
