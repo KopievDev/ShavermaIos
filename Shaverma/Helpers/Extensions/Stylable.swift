@@ -11,3 +11,11 @@ public protocol Stylable {}
 
 extension UIView: Stylable {}
 extension UICollectionViewLayout: Stylable {}
+
+extension Stylable where Self: SpinnerView {
+    @discardableResult
+    func color(_ value: UIColor) -> Self {
+        self.color = value
+        return self
+    }
+}

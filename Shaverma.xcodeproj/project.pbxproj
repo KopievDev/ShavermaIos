@@ -34,6 +34,8 @@
 		B5968C532BCEB3C400C7E426 /* AdressShowScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C4F2BCEB3C400C7E426 /* AdressShowScreen.swift */; };
 		B5968C542BCEB3C400C7E426 /* AdressShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C502BCEB3C400C7E426 /* AdressShowVC.swift */; };
 		B5968C552BCEB3C400C7E426 /* AdressShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */; };
+		B5968C572BCEBC0B00C7E426 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C562BCEBC0B00C7E426 /* LoaderView.swift */; };
+		B5968C592BCEBC5F00C7E426 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C582BCEBC5F00C7E426 /* BlurView.swift */; };
 		B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB02BBBC67300613015 /* AppDelegate.swift */; };
 		B5D0DEB32BBBC67300613015 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */; };
 		B5D0DEBA2BBBC67400613015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D0DEB92BBBC67400613015 /* Assets.xcassets */; };
@@ -134,6 +136,8 @@
 		B5968C4F2BCEB3C400C7E426 /* AdressShowScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowScreen.swift; sourceTree = "<group>"; };
 		B5968C502BCEB3C400C7E426 /* AdressShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowVC.swift; sourceTree = "<group>"; };
 		B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowViewModel.swift; sourceTree = "<group>"; };
+		B5968C562BCEBC0B00C7E426 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		B5968C582BCEBC5F00C7E426 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		B5D0DEAD2BBBC67300613015 /* Shaverma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaverma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D0DEB02BBBC67300613015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				B5D0DF212BBBF75300613015 /* CardCollectionView.swift */,
+				B5968C562BCEBC0B00C7E426 /* LoaderView.swift */,
+				B5968C582BCEBC5F00C7E426 /* BlurView.swift */,
 				B5D0DF0B2BBBCDBD00613015 /* Button.swift */,
 				B5D0DF0D2BBBCDBE00613015 /* Component.swift */,
 				B5D0DF152BBBD3A800613015 /* SpinerView.swift */,
@@ -642,6 +648,7 @@
 				B5D0DEDA2BBBC97100613015 /* Assets+Generated.swift in Sources */,
 				B58056232BBFD5C6000374E9 /* ProfileViewModel.swift in Sources */,
 				B5D0DF292BBC536C00613015 /* ShavermaAPI.swift in Sources */,
+				B5968C572BCEBC0B00C7E426 /* LoaderView.swift in Sources */,
 				B580562A2BBFDDB5000374E9 /* PromoScreen.swift in Sources */,
 				B5D0DEF72BBBCA9300613015 /* Stylable.swift in Sources */,
 				B5D0DEE72BBBCA8700613015 /* Encodable.swift in Sources */,
@@ -667,6 +674,7 @@
 				B5D0DF202BBBEE6F00613015 /* ProductCell.swift in Sources */,
 				B5D0DF0E2BBBCDBE00613015 /* PageIndicator.swift in Sources */,
 				B58056332BBFDE10000374E9 /* CartScreen.swift in Sources */,
+				B5968C592BCEBC5F00C7E426 /* BlurView.swift in Sources */,
 				B5D0DF272BBC533700613015 /* NetworkService.swift in Sources */,
 				B5D0DEF42BBBCA9300613015 /* UIButton+Stylable.swift in Sources */,
 			);

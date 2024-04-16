@@ -9,8 +9,10 @@ import Combine
 
 final class AdressShowViewModel {
     private let api = ShavermaAPI.shared
-
-    @Published var address: AddressResponse?
+    @Published
+    var isLoading: Bool = false
+    @Published 
+    var address: AddressResponse?
 
     func viewWillAppear() {
         loadAddress()
@@ -19,6 +21,8 @@ final class AdressShowViewModel {
     func loadAddress() {
         Task {
             do {
+                isLoading = true
+                defer { isLoading = false }
                 address = try await api.getAdrress()
             } catch {
                 print(error.localizedDescription)

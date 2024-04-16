@@ -15,6 +15,8 @@ final class AddressSelectViewModel: NSObject {
     var address: String? = "-"
     @Published
     var appartament: String?
+    @Published
+    var isLoading: Bool = false
     private var coordinate: CLLocationCoordinate2D?
 
     private let locationManager = CLLocationManager()
@@ -27,12 +29,14 @@ final class AddressSelectViewModel: NSObject {
 
     func saveAddress() async throws -> AddressResponse {
         guard let coordinate, let address else { throw NSError(domain: "Проверьте вводимые данные", code: -1) }
+
         let request: AddressResponse = .init(
             text: address + ", кв. \(appartament ?? "")",
             latitude: coordinate.latitude,
             longitude: coordinate.longitude
         )
-        print(request)
+        isLoading = true
+        defer { isLoading = false }
         return try await api.saveAdrress(request)
     }
 
@@ -66,9 +70,7 @@ final class AddressSelectViewModel: NSObject {
             placemark.subLocality,
             placemark.name,
             placemark.postalCode
-        ]
-            .compactMap { $0 }
-            .joined(separator: ", ")
+        ].compactMap { $0 }.joined(separator: ", ")
     }
 
 }

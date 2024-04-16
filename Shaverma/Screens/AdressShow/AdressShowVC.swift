@@ -114,5 +114,11 @@ private extension AdressShowVC {
         imageView.gesture().sink { [weak self] _ in guard let self else { return }
             router.routeToChangeAddress()
         }.store(in: &subscriptions)
+
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in guard let self else { return }
+                $0 ? showLoader() : dismissLoader()
+            }.store(in: &subscriptions)
     }
 }

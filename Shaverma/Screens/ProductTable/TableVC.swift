@@ -25,6 +25,8 @@ class TableVC: UIViewController, WithTable {
         $0.verticalScrollIndicatorInsets.top = 8
         return $0
     }(UITableView())
+    @Published
+    var isLoading: Bool = false
     let api = ShavermaAPI.shared
     let category: Category
 
@@ -50,12 +52,22 @@ class TableVC: UIViewController, WithTable {
         tableView.bind($items, cellType: ProductCell.self) { index, model, cell in
             cell.render(viewModel: model)
         }.store(in: &subscriptions)
+
+        $isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in guard let self else { return }
+                $0 ? showLoader() : dismissLoader()
+            }.store(in: &subscriptions)
+
         loadProducts()
+
     }
 
     func loadProducts() {
         Task { @MainActor in
             do {
+                isLoading = true
+                defer { isLoading = false }
                 items = try await api.products(category: category)
             } catch {
                 print(error.localizedDescription)

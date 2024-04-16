@@ -219,6 +219,12 @@ private extension AddressSelectVC {
         doneButton.tapPublisher.sink { [weak self] in guard let self else { return }
             saveAddress()
         }.store(in: &subscriptions)
+
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in guard let self else { return }
+                $0 ? showLoader() : dismissLoader()
+            }.store(in: &subscriptions)
     }
 
     func saveAddress() {
