@@ -8,12 +8,22 @@
 import Foundation
 
 struct Product: Codable {
+    let id: UUID
     let name: String
     let desc: String
     let price: Decimal
     let imageUrl: String?
 
     var count: Int?
+
+    init(id: UUID = .init(), name: String, desc: String, price: Decimal, imageUrl: String?, count: Int? = nil) {
+        self.id = id
+        self.name = name
+        self.desc = desc
+        self.price = price
+        self.imageUrl = imageUrl
+        self.count = count
+    }
 }
 
 extension Product {
