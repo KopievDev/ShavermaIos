@@ -58,7 +58,7 @@ extension Addresses {
         }
 
         func revert(on database: Database) async throws {
-            try await database.schema(UserToken.schema).delete()
+            try await database.schema(Addresses.schema).delete()
         }
     }
 }
