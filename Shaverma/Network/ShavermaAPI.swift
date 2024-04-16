@@ -104,7 +104,15 @@ extension ShavermaAPI {
 
     /// Обновить адрес
     func saveAdrress(_ model: AddressResponse) async throws -> AddressResponse {
-        guard let request = request(endpoint: "address", method: .put, body: model) else {
+        guard let request = request(endpoint: "users/address", method: .put, body: model) else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+
+    /// Обновить адрес
+    func getAdrress() async throws -> AddressResponse {
+        guard let request = request(endpoint: "users/address", method: .get) else {
             throw NSError(domain: "Bad request", code: -1)
         }
         return try await network.send(request)

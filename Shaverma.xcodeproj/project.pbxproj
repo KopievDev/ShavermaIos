@@ -211,6 +211,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B54950CC2BCEB2C6000BA280 /* AdressShow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AdressShow;
+			sourceTree = "<group>";
+		};
 		B58056162BBFC46E000374E9 /* Preference */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +313,7 @@
 		B5D0DEC52BBBC69500613015 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B54950CC2BCEB2C6000BA280 /* AdressShow */,
 				B58056392BC04BA7000374E9 /* AddressSelect */,
 				B580562D2BBFDE06000374E9 /* Cart */,
 				B58056242BBFDDAA000374E9 /* Promo */,
