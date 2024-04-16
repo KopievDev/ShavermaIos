@@ -61,12 +61,8 @@ struct AdminController: RouteCollection {
             throw Abort(.forbidden)
         }
         let allDatas = try await TelegramData.query(on: req.db).all()
-        allDatas.forEach { data  in
-            let apiUrl = "https://api.telegram.org/bot\(data.token)/sendMessage"
-            let requestBody: [String: String] = ["chat_id": data.chatId, "text": "get TelegramData \(data)"]
-            _ = req.client.post(URI(string: apiUrl)) { request in
-                try request.content.encode(requestBody, as: .json)
-            }
+        for data in allDatas {
+            try await req.sendTG(message: "TelegramData: \(data)")
         }
         return try allDatas.compactMap { try $0.response() }
     }
