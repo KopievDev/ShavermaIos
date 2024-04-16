@@ -30,6 +30,7 @@ final class Products: Model, Content {
         id: UUID? = .generateRandom(),
         name: String,
         desc: String,
+        image: String?,
         price: Decimal = 0,
         categoryID: Categoties.IDValue
     ) {
@@ -37,6 +38,7 @@ final class Products: Model, Content {
         self.name = name
         self.desc = desc
         self.price = price
+        self.image = image
         self.$category.id = categoryID
     }
 }

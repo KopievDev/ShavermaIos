@@ -93,7 +93,7 @@ struct ProductsController: RouteCollection {
     }
 
     func productForCategoryID(req: Request) async throws -> [ProductsResponse] {
-        let user = try req.auth.require(User.self)
+        _ = try req.auth.require(User.self)
         guard let categoryId = req.parameters.get("id"), let id = UUID(uuidString: categoryId) else {
             throw Abort(.custom(code: 404, reasonPhrase: "Нет такой категории"))
         }
@@ -133,6 +133,7 @@ struct ProductsController: RouteCollection {
             id: .generateRandom(),
             name: productRequest.name,
             desc: productRequest.desc,
+            image: productRequest.imageUrl,
             price: productRequest.price,
             categoryID: category.requireID()
         )
