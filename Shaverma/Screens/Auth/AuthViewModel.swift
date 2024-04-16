@@ -8,18 +8,23 @@
 import Combine
 
 final class AuthViewModel {
-
+    
     enum ActionType {
         case successLogin
         case error(Toast.ViewModel)
     }
-
+    
     let actions = PassthroughSubject<ActionType, Never>()
-
+    
     private let api = ShavermaAPI.shared
     
     var email: String = ""
     var password: String = ""
+    
+    func viewDidLoad() {
+//        api.token = "BcIkbdtotygaMU2DlbQf2w=="
+        api.logout()
+    }
 
     func categories() async throws -> [Category] {
         try await ShavermaAPI.shared.categories()

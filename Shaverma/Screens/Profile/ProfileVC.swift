@@ -18,6 +18,7 @@ final class ProfileVC: UIViewController {
         $0.register(MenuCell.self)
         $0.contentInset = .init(top: 8, left: 0, bottom: 76, right: 0)
         $0.scrollsToTop = true
+        $0.delegate = self
         $0.verticalScrollIndicatorInsets.top = 8
         return $0
     }(UITableView())
@@ -68,6 +69,17 @@ private extension ProfileVC {
         tableView.bind(viewModel.$cells, cellType: MenuCell.self) { index, model, cell in
             cell.render(viewModel: model)
         }.store(in: &subscriptions)
+    }
+}
+
+extension ProfileVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = viewModel.cells[indexPath.row]
+        switch model.type {
+        case "logout":
+            router.logout()
+        default: break
+        }
     }
 }
 

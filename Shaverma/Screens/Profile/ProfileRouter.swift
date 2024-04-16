@@ -13,4 +13,9 @@ final class ProfileRouter: Router {
     func routeToSomeScreen() {
         
     }
+
+    func logout() {
+        
+        navigator.makeRoot(screen: AuthScreen())
+    }
 }

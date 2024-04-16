@@ -64,6 +64,7 @@ final class AuthVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewDidLoad()
         setupUI()
         bind()
     }

@@ -14,19 +14,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = .init(windowScene: winScene)
+        guard !ShavermaAPI.shared.token.isEmpty else {
+            window?.rootViewController = AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration)
+            window?.makeKeyAndVisible()
+            return
+        }
         Task {
             do {
                 let categoies = try await ShavermaAPI.shared.categories()
-                let vc = ShavermaAPI.shared.token == nil
-                    ? AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration)
-                    : TabbarScreen(categories: categoies).build()
-                window?.rootViewController = vc
+                window?.rootViewController = TabbarScreen(categories: categoies).build()
                 window?.makeKeyAndVisible()
             } catch {
-                let vc = ShavermaAPI.shared.token == nil
-                    ? AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration)
-                    : TabbarScreen(categories: Category.categories).build()
-                window?.rootViewController = vc
+                window?.rootViewController = TabbarScreen(categories: Category.categories).build()
                 window?.makeKeyAndVisible()
             }
         }

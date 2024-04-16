@@ -17,8 +17,8 @@ final class ShavermaAPI {
     }
 
     ///"oRyL1YTgXcocQNE4WBPJJQ=="
-    @PreferencesStored(wrappedValue: nil, key: ApplicationPreferencesKey.authToken)
-    var token: String?
+    @PreferencesStored(key: ApplicationPreferencesKey.authToken)
+    var token: String = ""
 
     static let shared = ShavermaAPI()
 
@@ -30,7 +30,7 @@ final class ShavermaAPI {
         guard let url = URL(string: baseUrl + endpoint) else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        if let token {
+        if !token.isEmpty {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
         if let basic, let base = basic.data(using: .utf8)?.base64EncodedString() {
@@ -38,10 +38,25 @@ final class ShavermaAPI {
         }
         return request
     }
+
+    func logout() {
+        Task {
+            do {
+                let okResp = try await logout()
+                token = ""
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 struct TokenResponse: Codable {
     let token: String
+}
+
+struct MessageResponse: Codable {
+    let message: String
 }
 
 // MARK: - Requests -
@@ -50,6 +65,14 @@ extension ShavermaAPI {
     /// Авторизация
     func login(email: String, password: String) async throws -> TokenResponse {
         guard let request = request(endpoint: "login", basic: "\(email):\(password)") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+
+    /// Выход
+    func logout() async throws -> MessageResponse {
+        guard let request = request(endpoint: "logout") else {
             throw NSError(domain: "Bad request", code: -1)
         }
         return try await network.send(request)
