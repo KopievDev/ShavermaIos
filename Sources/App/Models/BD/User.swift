@@ -72,3 +72,33 @@ extension User {
         )
     }
 }
+
+// MARK: - Make Addresses -
+extension User {
+    func createAddress(_ model: AddressResponse) throws -> Addresses {
+        try .init(
+            id: .generateRandom(),
+            text: model.text,
+            latitude: model.latitude,
+            longitude: model.longitude,
+            userID: requireID()
+        )
+    }
+}
+
+//// MARK: - Migration -
+//extension User {
+//    struct AddAddressMigration: AsyncMigration {
+//        var name: String { "AddAddressMigration" }
+//
+//        func prepare(on database: Database) async throws {
+//            try await database.schema(User.schema)
+//                .field("address", .string)
+//                .update()
+//        }
+//
+//        func revert(on database: Database) async throws {
+//            try await database.schema(Products.schema).deleteField("address").update()
+//        }
+//    }
+//}
