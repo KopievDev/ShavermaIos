@@ -10,6 +10,7 @@
 		B54950C52BCD636A000BA280 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950C42BCD636A000BA280 /* LocationService.swift */; };
 		B54950C72BCE4779000BA280 /* MKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950C62BCE4779000BA280 /* MKPointAnnotation.swift */; };
 		B54950C92BCE55AD000BA280 /* AddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950C82BCE55AD000BA280 /* AddressResponse.swift */; };
+		B54950CB2BCEAC08000BA280 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */; };
 		B58056152BBFBF5C000374E9 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056142BBFBF5C000374E9 /* Toast.swift */; };
 		B58056182BBFC47D000374E9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056172BBFC47D000374E9 /* Preferences.swift */; };
 		B580561A2BBFC4CF000374E9 /* PreferencesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056192BBFC4CF000374E9 /* PreferencesKey.swift */; };
@@ -105,6 +106,7 @@
 		B54950C42BCD636A000BA280 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		B54950C62BCE4779000BA280 /* MKPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotation.swift; sourceTree = "<group>"; };
 		B54950C82BCE55AD000BA280 /* AddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressResponse.swift; sourceTree = "<group>"; };
+		B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		B58056142BBFBF5C000374E9 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		B58056172BBFC47D000374E9 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		B58056192BBFC4CF000374E9 /* PreferencesKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesKey.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D0DF1B2BBBE4B900613015 /* Category.swift */,
+				B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */,
 				B5D0DF1D2BBBE79C00613015 /* Product.swift */,
 				B54950C82BCE55AD000BA280 /* AddressResponse.swift */,
 			);
@@ -627,6 +630,7 @@
 				B58056182BBFC47D000374E9 /* Preferences.swift in Sources */,
 				B5D0DECB2BBBC73500613015 /* MainRouter.swift in Sources */,
 				B5D0DF1E2BBBE79C00613015 /* Product.swift in Sources */,
+				B54950CB2BCEAC08000BA280 /* ErrorResponse.swift in Sources */,
 				B5D0DEE52BBBCA8700613015 /* Sequence.swift in Sources */,
 				B5D0DF052BBBCA9C00613015 /* UIStackView.swift in Sources */,
 				B58056212BBFD5C6000374E9 /* ProfileScreen.swift in Sources */,

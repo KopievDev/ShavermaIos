@@ -42,8 +42,8 @@ final class ShavermaAPI {
     func logout() {
         Task {
             do {
-                let okResp = try await logout()
                 token = ""
+                _ = try await logout()
             } catch {
                 print(error.localizedDescription)
             }

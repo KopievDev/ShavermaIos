@@ -35,6 +35,20 @@ final class BaseNetworkService: NetworkService {
 
     func send<T: Decodable>(_ request: URLRequest) async throws -> T {
         let data = try await session.data(for: request).0
-        return try JSONDecoder().decode(T.self, from: data)
+        do {
+            let resp = try JSONDecoder().decode(T.self, from: data)
+            return resp
+        } catch {
+            if let error = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                switch error.reason {
+                case .unauthorized:
+                    Navigator.shared.makeRoot(screen: AuthScreen())
+                default: break
+                }
+                throw error
+            } else {
+                throw error
+            }
+        }
     }
 }
