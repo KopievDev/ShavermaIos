@@ -125,7 +125,10 @@ private extension AuthVC {
     func handle(actions: AuthViewModel.ActionType) {
         switch actions {
         case .successLogin:
-            router.routeToMain()
+            Task { @MainActor in
+                let categories = try? await viewModel.categories()
+                router.routeToMain(categories: categories ?? Category.categories)
+            }
         case .error(let viewModel):
             Toast.with(viewModel: viewModel)
         }

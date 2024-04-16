@@ -8,9 +8,11 @@
 import UIKit
 
 struct TabbarScreen: Screen {
+    let categories: [Category]
+    
     func build() -> some UIViewController {
         Tabbar(vcs: [
-            MainScreen(vcs: Category.categories.map(TableVC.init)).withStack(configurator: NavigationBarStyle.primary.configuration),
+            MainScreen(vcs: categories.map(TableVC.init)).withStack(configurator: NavigationBarStyle.primary.configuration),
             PromoScreen().withStack(configurator: NavigationBarStyle.primary.configuration),
             ProfileScreen().withStack(configurator: NavigationBarStyle.primary.configuration),
             CartScreen().withStack(configurator: NavigationBarStyle.primary.configuration)

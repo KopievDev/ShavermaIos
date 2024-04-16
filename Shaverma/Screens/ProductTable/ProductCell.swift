@@ -107,9 +107,9 @@ private extension ProductCell {
         $product
             .compactMap { $0 }
             .sink { [weak self] product in guard let self else { return }
-                titleLabel.text = product.title
+                titleLabel.text = product.name
                 descLabel.text = product.desc
-                imgView.load(urlString: product.img)
+                imgView.load(urlString: product.imageUrl ?? "")
                 priceLabel.text = (product.price/100).rubleString()
             }.store(in: &subscriptions)
     }

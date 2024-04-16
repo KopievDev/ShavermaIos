@@ -25,7 +25,7 @@ class TableVC: UIViewController, WithTable {
         $0.verticalScrollIndicatorInsets.top = 8
         return $0
     }(UITableView())
-
+    let api = ShavermaAPI.shared
     let category: Category
 
     @Published var items: [Product] = []
@@ -33,18 +33,6 @@ class TableVC: UIViewController, WithTable {
 
     init(category: Category) {
         self.category = category
-        switch category.name {
-        case "Шаурма":
-            items = Product.shaverma
-        case "Закуски":
-            items = Product.zakuson
-        case "Напитки":
-            items = Product.drinks
-        case "Соусы":
-            items = Product.sauses
-        default:
-            items = Product.shaverma
-        }
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -59,9 +47,19 @@ class TableVC: UIViewController, WithTable {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-
         tableView.bind($items, cellType: ProductCell.self) { index, model, cell in
             cell.render(viewModel: model)
         }.store(in: &subscriptions)
+        loadProducts()
+    }
+
+    func loadProducts() {
+        Task { @MainActor in
+            do {
+                items = try await api.products(category: category)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

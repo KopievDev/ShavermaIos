@@ -27,7 +27,13 @@ final class AddressSelectViewModel: NSObject {
 
     func saveAddress() async throws -> AddressResponse {
         guard let coordinate, let address else { throw NSError(domain: "Проверьте вводимые данные", code: -1) }
-        return try await api.saveAdrress(.init(text: address, latitude: coordinate.latitude, longitude: coordinate.longitude))
+        let request: AddressResponse = .init(
+            text: address + ", кв. \(appartament ?? "")",
+            latitude: coordinate.latitude,
+            longitude: coordinate.longitude
+        )
+        print(request)
+        return try await api.saveAdrress(request)
     }
 
     func getCurrentLocation() -> CLLocation? {

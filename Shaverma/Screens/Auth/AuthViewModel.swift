@@ -21,6 +21,10 @@ final class AuthViewModel {
     var email: String = ""
     var password: String = ""
 
+    func categories() async throws -> [Category] {
+        try await ShavermaAPI.shared.categories()
+    }
+
     func didTapContinue() {
         Task {
             do {

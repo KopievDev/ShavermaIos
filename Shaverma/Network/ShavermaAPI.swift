@@ -62,7 +62,15 @@ extension ShavermaAPI {
         return try await network.send(request)
     }
 
-    /// Список категорий
+    /// Список продуктов категории
+    func products(category: Category) async throws -> [Product] {
+        guard let request = request(endpoint: "products/\(category.id.uuidString)") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+
+    /// Обновить адрес
     func saveAdrress(_ model: AddressResponse) async throws -> AddressResponse {
         guard var request = request(endpoint: "address", method: .put) else {
             throw NSError(domain: "Bad request", code: -1)
