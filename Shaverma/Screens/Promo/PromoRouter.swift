@@ -11,9 +11,6 @@ final class PromoRouter: Router {
     weak var vc: PromoVC?
 
     func routeToSomeScreen() {
-        navigator.push(screen: AddressSelectScreen { [weak self] image in
-            guard let self else { return }
-            vc?.set(image: image)
-        })
+       
     }
 }

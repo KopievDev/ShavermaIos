@@ -78,6 +78,8 @@ extension ProfileVC: UITableViewDelegate {
         switch model.type {
         case "logout":
             router.logout()
+        case "address":
+            router.routeToShowAddress()
         default: break
         }
     }

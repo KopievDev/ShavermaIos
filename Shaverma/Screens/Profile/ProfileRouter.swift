@@ -10,12 +10,11 @@ import UIKit
 final class ProfileRouter: Router {
     weak var vc: ProfileVC?
 
-    func routeToSomeScreen() {
-        
+    func routeToShowAddress() {
+        navigator.push(screen: AdressShowScreen())
     }
 
     func logout() {
-        
         navigator.makeRoot(screen: AuthScreen())
     }
 }

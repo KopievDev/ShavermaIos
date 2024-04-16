@@ -14,10 +14,6 @@ final class PromoVC: UIViewController {
     private let viewModel: PromoViewModel
     private let router: PromoRouter
     private var subscriptions: Set<AnyCancellable> = []
-    private let imageView = UIImageView()
-        .clipsToBounds(true)
-        .cornerRadius(16)
-        .contentMode(.scaleAspectFill)
 
     init(
         viewModel: PromoViewModel,
@@ -39,10 +35,6 @@ final class PromoVC: UIViewController {
         bind()
         viewModel.viewDidLoad()
     }
-
-    func set(image: UIImage?) {
-        imageView.image = image
-    }
 }
 
 private extension PromoVC {
@@ -54,20 +46,14 @@ private extension PromoVC {
 
     func setupView() {
         view.backgroundColor(.staticWhite)
-        view.gesture().sink {  [weak self] _ in guard let self else { return }
-            router.routeToSomeScreen() 
-        }.store(in: &subscriptions)
     }
 
     func addSubviews() {
-        [imageView].addOnParent(view: view)
+
     }
 
     func addConstraints() {
-        imageView.snp.makeConstraints {
-            $0.left.right.top.equalToSuperview().inset(16)
-            $0.height.equalTo(134)
-        }
+
     }
 
     func bind() {

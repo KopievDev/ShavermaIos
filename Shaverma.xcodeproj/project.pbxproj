@@ -30,6 +30,10 @@
 		B580563F2BC04BD0000374E9 /* AddressSelectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580563B2BC04BD0000374E9 /* AddressSelectScreen.swift */; };
 		B58056402BC04BD0000374E9 /* AddressSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580563C2BC04BD0000374E9 /* AddressSelectVC.swift */; };
 		B58056412BC04BD0000374E9 /* AddressSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580563D2BC04BD0000374E9 /* AddressSelectViewModel.swift */; };
+		B5968C522BCEB3C400C7E426 /* AdressShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C4E2BCEB3C400C7E426 /* AdressShowRouter.swift */; };
+		B5968C532BCEB3C400C7E426 /* AdressShowScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C4F2BCEB3C400C7E426 /* AdressShowScreen.swift */; };
+		B5968C542BCEB3C400C7E426 /* AdressShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C502BCEB3C400C7E426 /* AdressShowVC.swift */; };
+		B5968C552BCEB3C400C7E426 /* AdressShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */; };
 		B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB02BBBC67300613015 /* AppDelegate.swift */; };
 		B5D0DEB32BBBC67300613015 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */; };
 		B5D0DEBA2BBBC67400613015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D0DEB92BBBC67400613015 /* Assets.xcassets */; };
@@ -126,6 +130,10 @@
 		B580563B2BC04BD0000374E9 /* AddressSelectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectScreen.swift; sourceTree = "<group>"; };
 		B580563C2BC04BD0000374E9 /* AddressSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectVC.swift; sourceTree = "<group>"; };
 		B580563D2BC04BD0000374E9 /* AddressSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectViewModel.swift; sourceTree = "<group>"; };
+		B5968C4E2BCEB3C400C7E426 /* AdressShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowRouter.swift; sourceTree = "<group>"; };
+		B5968C4F2BCEB3C400C7E426 /* AdressShowScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowScreen.swift; sourceTree = "<group>"; };
+		B5968C502BCEB3C400C7E426 /* AdressShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowVC.swift; sourceTree = "<group>"; };
+		B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowViewModel.swift; sourceTree = "<group>"; };
 		B5D0DEAD2BBBC67300613015 /* Shaverma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaverma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D0DEB02BBBC67300613015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +222,10 @@
 		B54950CC2BCEB2C6000BA280 /* AdressShow */ = {
 			isa = PBXGroup;
 			children = (
+				B5968C4E2BCEB3C400C7E426 /* AdressShowRouter.swift */,
+				B5968C4F2BCEB3C400C7E426 /* AdressShowScreen.swift */,
+				B5968C502BCEB3C400C7E426 /* AdressShowVC.swift */,
+				B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */,
 			);
 			path = AdressShow;
 			sourceTree = "<group>";
@@ -609,6 +621,10 @@
 				B5D0DF242BBC0D1500613015 /* Tabbar.swift in Sources */,
 				B5D0DF5B2BBEEB8700613015 /* AuthScreen.swift in Sources */,
 				B58056342BBFDE10000374E9 /* CartVC.swift in Sources */,
+				B5968C522BCEB3C400C7E426 /* AdressShowRouter.swift in Sources */,
+				B5968C532BCEB3C400C7E426 /* AdressShowScreen.swift in Sources */,
+				B5968C542BCEB3C400C7E426 /* AdressShowVC.swift in Sources */,
+				B5968C552BCEB3C400C7E426 /* AdressShowViewModel.swift in Sources */,
 				B5D0DF1C2BBBE4B900613015 /* Category.swift in Sources */,
 				B5D0DEF52BBBCA9300613015 /* UICollectionView+Stylable.swift in Sources */,
 				B5D0DF032BBBCA9C00613015 /* UIColor.swift in Sources */,

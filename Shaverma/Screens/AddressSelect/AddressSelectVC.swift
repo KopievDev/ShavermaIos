@@ -72,19 +72,12 @@ final class AddressSelectVC: UIViewController, MKMapViewDelegate {
     private let addressImageBlock: ((UIImage?) -> Void)?
     let keyboard = KeyboardHeight()
 
-    private let myGeoButton = Button(
-        viewModel: .init(
-            title: "Моя геопозиция",
-            icon: .tap,
-            backgroundColor: .orangeButton,
-            textColor: .white,
-            isEnabled: true,
-            withAnimate: true,
-            withAnimateColors: true,
-            withHaptic: true,
-            corners: .full
-        )
-    )
+    private let myGeoButton = UIButton(width: 52, height: 52)
+        .withImage(.init(systemName: "location"))
+        .backgroundColor(.systemPurple)
+        .tintColor(.staticWhite)
+        .cornerRadius(26)
+
     init(
         viewModel: AddressSelectViewModel,
         router: AddressSelectRouter,
@@ -106,6 +99,7 @@ final class AddressSelectVC: UIViewController, MKMapViewDelegate {
         setupUI()
         bind()
         viewModel.viewDidLoad()
+        showMe()
     }
 
 
@@ -185,7 +179,7 @@ private extension AddressSelectVC {
         }
         myGeoButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(32)
-            $0.left.right.equalToSuperview().inset(16)
+            $0.right.equalToSuperview().inset(16)
         }
     }
 
