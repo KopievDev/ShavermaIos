@@ -1,4 +1,5 @@
 {
+  "originHash" : "e99b5806aa28cdc5ce354be13b4456e2a91e1d40e5560f6a7ec1d1adddff60da",
   "pins" : [
     {
       "identity" : "combinecocoa",
@@ -37,5 +38,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

@@ -35,6 +35,7 @@ final class TextField: Component {
     override func setupUI() {
         textfield.autocorrectionType = .no
         textfield.autocapitalizationType = .none
+
         cornerRadius(16).backgroundColor(.disabledButton)
         [textfield].addOnParent(view: self)
 
@@ -52,6 +53,12 @@ final class TextField: Component {
             .sink { [weak self] isSec in guard let self else { return }
                 textfield.isSecureTextEntry = isSec
             }.store(in: &subscriptions)
+
+        viewModel.$keyboardType
+            .sink { [weak self] keyboardType in guard let self else { return }
+                textfield.keyboardType = keyboardType
+            }.store(in: &subscriptions)
+
 
         viewModel.$placeholder
             .sink { [weak self] placeholder in guard let self else { return }
@@ -89,17 +96,21 @@ extension TextField {
         var placeholder: String?
         @Published
         var isSecureTextEntry: Bool = false
+        @Published
+        var keyboardType: UIKeyboardType
 
         var validator: Validator?
 
         init(
             placeholder: String? = nil,
             isSecureTextEntry: Bool = false,
-            validator: Validator? = nil
+            validator: Validator? = nil,
+            keyboardType: UIKeyboardType = .default
         ) {
             self.placeholder = placeholder
             self.isSecureTextEntry = isSecureTextEntry
             self.validator = validator
+            self.keyboardType = keyboardType
         }
     }
 }

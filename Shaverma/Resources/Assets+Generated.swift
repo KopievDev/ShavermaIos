@@ -132,6 +132,7 @@ internal enum Assets {
   internal static let walletWithCoins = ImageAsset(name: "Wallet with coins")
   internal static let wallet = ImageAsset(name: "Wallet")
   internal static let wildberries = ImageAsset(name: "Wildberries")
+  internal static let mapPin = ImageAsset(name: "mapPin")
   internal static let orangeButtonColor = ColorAsset(name: "OrangeButtonColor")
   internal static let primaryBaseColor = ColorAsset(name: "PrimaryBaseColor")
   internal static let secondaryTextColor = ColorAsset(name: "SecondaryTextColor")

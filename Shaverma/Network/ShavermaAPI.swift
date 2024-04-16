@@ -9,6 +9,13 @@ import Foundation
 
 final class ShavermaAPI {
 
+    enum Method: String {
+        case get = "GET"
+        case post = "POST"
+        case put = "PUT"
+        case delete = "DELETE"
+    }
+
     ///"oRyL1YTgXcocQNE4WBPJJQ=="
     @PreferencesStored(wrappedValue: nil, key: ApplicationPreferencesKey.authToken)
     var token: String?
@@ -19,9 +26,10 @@ final class ShavermaAPI {
 
     private let network = BaseNetworkService()
 
-    private func request(endpoint: String, basic: String? = nil) -> URLRequest? {
+    private func request(endpoint: String, basic: String? = nil, method: Method = .get) -> URLRequest? {
         guard let url = URL(string: baseUrl + endpoint) else { return nil }
         var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
         if let token {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
@@ -49,6 +57,14 @@ extension ShavermaAPI {
     /// Список категорий
     func categories() async throws -> [Category] {
         guard let request = request(endpoint: "categories") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+
+    /// Список категорий
+    func saveAdrress(_ model: AddressResponse) async throws -> AddressResponse {
+        guard var request = request(endpoint: "address", method: .put) else {
             throw NSError(domain: "Bad request", code: -1)
         }
         return try await network.send(request)
