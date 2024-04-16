@@ -26,7 +26,12 @@ final class ShavermaAPI {
 
     private let network = BaseNetworkService()
 
-    private func request(endpoint: String, basic: String? = nil, method: Method = .get) -> URLRequest? {
+    private func request(
+        endpoint: String,
+        basic: String? = nil,
+        method: Method = .get,
+        body: Encodable? = nil
+    ) -> URLRequest? {
         guard let url = URL(string: baseUrl + endpoint) else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
@@ -35,6 +40,10 @@ final class ShavermaAPI {
         }
         if let basic, let base = basic.data(using: .utf8)?.base64EncodedString() {
             request.addValue("Basic \(base)", forHTTPHeaderField: "Authorization")
+        }
+        if let body, let data = try? JSONEncoder().encode(body) {
+            request.httpBody = data
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         return request
     }
@@ -95,7 +104,7 @@ extension ShavermaAPI {
 
     /// Обновить адрес
     func saveAdrress(_ model: AddressResponse) async throws -> AddressResponse {
-        guard var request = request(endpoint: "address", method: .put) else {
+        guard let request = request(endpoint: "address", method: .put, body: model) else {
             throw NSError(domain: "Bad request", code: -1)
         }
         return try await network.send(request)

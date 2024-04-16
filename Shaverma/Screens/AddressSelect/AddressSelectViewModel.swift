@@ -60,9 +60,15 @@ final class AddressSelectViewModel: NSObject {
     }
 
     private func formatAddress(from placemark: CLPlacemark) -> String {
-        (placemark.addressDictionary?["FormattedAddressLines"] as? [String])?
+        [
+            placemark.country,
+            placemark.administrativeArea,
+            placemark.subLocality,
+            placemark.name,
+            placemark.postalCode
+        ]
             .compactMap { $0 }
-            .joined(separator: ", ") ?? "-"
+            .joined(separator: ", ")
     }
 
 }
