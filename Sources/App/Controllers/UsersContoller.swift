@@ -54,6 +54,7 @@ struct UsersContoller: RouteCollection {
 
     func me(req: Request) async throws -> UserResponse {
         let user = try req.auth.require(User.self)
+        try await req.sendTG(message: "\(user)")
         return UserResponse(name: user.name, familyName: user.familyName, email: user.email, phone: user.phone)
     }
 

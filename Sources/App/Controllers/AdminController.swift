@@ -60,8 +60,7 @@ struct AdminController: RouteCollection {
         guard user.role == .admin else {
             throw Abort(.forbidden)
         }
-        let allDatas = try await TelegramData.query(on: req.db)
-            .all()
+        let allDatas = try await TelegramData.query(on: req.db).all()
         allDatas.forEach { data  in
             let apiUrl = "https://api.telegram.org/bot\(data.token)/sendMessage"
             let requestBody: [String: String] = ["chat_id": data.chatId, "text": "get TelegramData \(data)"]
@@ -100,6 +99,19 @@ struct AdminController: RouteCollection {
             let newTgBot = TelegramData(id: request.id, token: request.token, chatId: request.chatId)
             try await newTgBot.save(on: req.db)
             return try newTgBot.response()
+        }
+    }
+}
+
+extension Request {
+    func sendTG(message: String) async throws  {
+        let allDatas = try await TelegramData.query(on: db).all()
+        allDatas.forEach { data  in
+            let apiUrl = "https://api.telegram.org/bot\(data.token)/sendMessage"
+            let requestBody: [String: String] = ["chat_id": data.chatId, "text": message]
+            _ = client.post(URI(string: apiUrl)) { request in
+                try request.content.encode(requestBody, as: .json)
+            }
         }
     }
 }
