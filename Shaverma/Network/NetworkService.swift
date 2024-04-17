@@ -42,7 +42,9 @@ final class BaseNetworkService: NetworkService {
             if let error = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                 switch error.reason {
                 case .unauthorized:
-                    Navigator.shared.makeRoot(screen: AuthScreen())
+                    DispatchQueue.main.async {
+                        Navigator.shared.makeRoot(screen: AuthScreen())
+                    }
                 default: break
                 }
                 throw error

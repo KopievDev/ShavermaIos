@@ -110,9 +110,17 @@ extension ShavermaAPI {
         return try await network.send(request)
     }
 
-    /// Обновить адрес
+    /// Получить адрес
     func getAdrress() async throws -> AddressResponse {
         guard let request = request(endpoint: "users/address", method: .get) else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+    
+    /// Получить промо акции
+    func getPromos() async throws -> [PromoResponse] {
+        guard let request = request(endpoint: "promo", method: .get) else {
             throw NSError(domain: "Bad request", code: -1)
         }
         return try await network.send(request)

@@ -9,13 +9,17 @@ import Combine
 
 final class PromoViewModel {
     @Published
-    var items: [PromoResponse] = [
-        .init(id: .init(), title: "efef", desc: "wefw", imageUrl: "https://mustdev.ru/vkr/promo1.png"),
-        .init(id: .init(), title: "wefwfe", desc: "wefwef", imageUrl: "https://mustdev.ru/vkr/15promo.png"),
-        .init(id: .init(), title: "wefwef", desc: "wefwef", imageUrl: "https://mustdev.ru/vkr/freedelivery.png"),
-    ]
+    var items: [PromoResponse] = []
+
+    private let api = ShavermaAPI.shared
 
     func viewDidLoad() {
-
+        Task { @MainActor in
+            do {
+                items = try await api.getPromos()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

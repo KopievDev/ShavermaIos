@@ -107,9 +107,7 @@ private extension MainVC {
         title = "Меню"
         table = viewModel.vcs.first?.tableView
         view.backgroundColor = .primaryBase
-        cardCollectionView.cards = [
-            .banner, .banner, .banner, .banner, .banner
-        ]
+
     }
 
     func addSubviews() {
@@ -164,6 +162,17 @@ private extension MainVC {
                 pageIndicator.setSelect(index: index)
                 table = viewModel.vcs[index].tableView
             }.store(in: &subscriptions)
+
+        viewModel.$promos
+            .sink { [weak self] in guard let self else { return }
+                cardCollectionView.cards = $0
+                cardCollectionView.isHidden = $0.isEmpty
+                titleLabel.isHidden = $0.isEmpty
+            }.store(in: &subscriptions)
+
+        cardCollectionView.selectedItemPublisher.sink { [weak self] in guard let self else { return }
+            router.routeToDetail(promo: $0)
+        }.store(in: &subscriptions)
     }
 
     func render(percent: CGFloat) {

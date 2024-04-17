@@ -12,4 +12,8 @@ final class MainRouter: Router {
 
     func routeToSomeScreen() {
     }
+
+    func routeToDetail(promo: PromoResponse) {
+        navigator.push(screen: PromoViewerScreen(promo: promo))
+    }
 }

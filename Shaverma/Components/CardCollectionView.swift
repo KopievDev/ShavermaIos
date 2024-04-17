@@ -12,7 +12,9 @@ import CombineCocoa
 
 final class CardCollectionView: Component {
     @Published
-    var cards: [UIImage] = []
+    var cards: [PromoResponse] = []
+    let selectedItemPublisher = PassthroughSubject<PromoResponse, Never>()
+
     private lazy var collectionView: UICollectionView = {
         $0.showsHorizontalScrollIndicator = false
         $0.delegate = self
@@ -34,8 +36,9 @@ final class CardCollectionView: Component {
     }
 
     override func bind() {
-        collectionView.bind($cards, cellType: CardImageCellView.self) { index, model, cell in
+        collectionView.bind($cards, cellType: CardImageCellView.self) { [unowned self] index, model, cell in
             cell.render(viewModel: model)
+            cell.tapAction = { self.selectedItemPublisher.send($0) }
         }.store(in: &subscriptions)
     }
 
@@ -79,20 +82,31 @@ extension CardCollectionView: UICollectionViewDelegate {
     }
 }
 
-private final class CardImageCellView: BaseCollectionCell<UIImage> {
+private final class CardImageCellView: BaseCollectionCell<PromoResponse> {
 
     let imgView = UIImageView()
         .contentMode(.scaleAspectFill)
         .clipsToBounds(true)
         .cornerRadius(16)
+
+    private var promo: PromoResponse?
+
+    var tapAction: ((PromoResponse)->Void)?
+    private var subscriptions: Set<AnyCancellable> = []
+
     override func commonInit() {
         [imgView].addOnParent(view: contentView)
         contentView.backgroundColor(.clear)
         imgView.snp.makeConstraints { $0.edges.equalToSuperview() }
-
+        gesture()
+            .compactMap { [weak self] _ in self?.promo }
+            .sink { [weak self] promo in self?.tapAction?(promo) }
+            .store(in: &subscriptions)
     }
-    override func render(viewModel: UIImage) {
-        imgView.image = viewModel
+
+    override func render(viewModel: PromoResponse) {
+        promo = viewModel
+        imgView.load(urlString: viewModel.imageUrl)
     }
     
     override func layoutSubviews() {
