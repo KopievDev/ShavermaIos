@@ -13,4 +13,8 @@ final class AuthRouter: Router {
     func routeToMain(categories: [Category]) {
         Navigator.shared.makeRoot(screen: TabbarScreen(categories: categories))
     }
+
+    func register() {
+        Navigator.shared.push(screen: RegistrationScreen())
+    }
 }

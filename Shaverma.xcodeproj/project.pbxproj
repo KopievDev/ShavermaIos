@@ -43,6 +43,11 @@
 		B5968C652BCF8AFF00C7E426 /* PromoViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C612BCF8AFF00C7E426 /* PromoViewerVC.swift */; };
 		B5968C662BCF8AFF00C7E426 /* PromoViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C622BCF8AFF00C7E426 /* PromoViewerViewModel.swift */; };
 		B5968C682BCF8D4400C7E426 /* ScrollStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C672BCF8D4400C7E426 /* ScrollStack.swift */; };
+		B5968C6F2BCF986D00C7E426 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C6B2BCF986D00C7E426 /* RegistrationRouter.swift */; };
+		B5968C702BCF986D00C7E426 /* RegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C6C2BCF986D00C7E426 /* RegistrationScreen.swift */; };
+		B5968C712BCF986D00C7E426 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C6D2BCF986D00C7E426 /* RegistrationVC.swift */; };
+		B5968C722BCF986D00C7E426 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C6E2BCF986D00C7E426 /* RegistrationViewModel.swift */; };
+		B5968C742BCF9F1100C7E426 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C732BCF9F1100C7E426 /* RegisterRequest.swift */; };
 		B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB02BBBC67300613015 /* AppDelegate.swift */; };
 		B5D0DEB32BBBC67300613015 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */; };
 		B5D0DEBA2BBBC67400613015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D0DEB92BBBC67400613015 /* Assets.xcassets */; };
@@ -152,6 +157,11 @@
 		B5968C612BCF8AFF00C7E426 /* PromoViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewerVC.swift; sourceTree = "<group>"; };
 		B5968C622BCF8AFF00C7E426 /* PromoViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewerViewModel.swift; sourceTree = "<group>"; };
 		B5968C672BCF8D4400C7E426 /* ScrollStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollStack.swift; sourceTree = "<group>"; };
+		B5968C6B2BCF986D00C7E426 /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		B5968C6C2BCF986D00C7E426 /* RegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreen.swift; sourceTree = "<group>"; };
+		B5968C6D2BCF986D00C7E426 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		B5968C6E2BCF986D00C7E426 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		B5968C732BCF9F1100C7E426 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		B5D0DEAD2BBBC67300613015 /* Shaverma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaverma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D0DEB02BBBC67300613015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -315,6 +325,26 @@
 			path = PromoViewer;
 			sourceTree = "<group>";
 		};
+		B5968C692BCF982700C7E426 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				B58056392BC04BA7000374E9 /* AddressSelect */,
+				B54950CC2BCEB2C6000BA280 /* AdressShow */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		B5968C6A2BCF986600C7E426 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				B5968C6B2BCF986D00C7E426 /* RegistrationRouter.swift */,
+				B5968C6C2BCF986D00C7E426 /* RegistrationScreen.swift */,
+				B5968C6D2BCF986D00C7E426 /* RegistrationVC.swift */,
+				B5968C6E2BCF986D00C7E426 /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		B5D0DEA42BBBC67300613015 = {
 			isa = PBXGroup;
 			children = (
@@ -356,8 +386,8 @@
 		B5D0DEC52BBBC69500613015 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B54950CC2BCEB2C6000BA280 /* AdressShow */,
-				B58056392BC04BA7000374E9 /* AddressSelect */,
+				B5968C6A2BCF986600C7E426 /* Registration */,
+				B5968C692BCF982700C7E426 /* Address */,
 				B580562D2BBFDE06000374E9 /* Cart */,
 				B58056242BBFDDAA000374E9 /* Promo */,
 				B580561B2BBFD5BC000374E9 /* Profile */,
@@ -478,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D0DF1B2BBBE4B900613015 /* Category.swift */,
+				B5968C732BCF9F1100C7E426 /* RegisterRequest.swift */,
 				B5968C5A2BCF881900C7E426 /* PromoResponse.swift */,
 				B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */,
 				B5D0DF1D2BBBE79C00613015 /* Product.swift */,
@@ -708,9 +739,14 @@
 				B580563F2BC04BD0000374E9 /* AddressSelectScreen.swift in Sources */,
 				B5D0DF202BBBEE6F00613015 /* ProductCell.swift in Sources */,
 				B5D0DF0E2BBBCDBE00613015 /* PageIndicator.swift in Sources */,
+				B5968C742BCF9F1100C7E426 /* RegisterRequest.swift in Sources */,
 				B58056332BBFDE10000374E9 /* CartScreen.swift in Sources */,
 				B5968C682BCF8D4400C7E426 /* ScrollStack.swift in Sources */,
 				B5968C592BCEBC5F00C7E426 /* BlurView.swift in Sources */,
+				B5968C6F2BCF986D00C7E426 /* RegistrationRouter.swift in Sources */,
+				B5968C702BCF986D00C7E426 /* RegistrationScreen.swift in Sources */,
+				B5968C712BCF986D00C7E426 /* RegistrationVC.swift in Sources */,
+				B5968C722BCF986D00C7E426 /* RegistrationViewModel.swift in Sources */,
 				B5D0DF272BBC533700613015 /* NetworkService.swift in Sources */,
 				B5D0DEF42BBBCA9300613015 /* UIButton+Stylable.swift in Sources */,
 			);

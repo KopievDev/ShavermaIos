@@ -48,6 +48,13 @@ final class AuthVC: UIViewController {
         )
     )
 
+    private let registerButton = UIButton(
+        text: "Зарегистрироваться",
+        font: .boldSystemFont(ofSize: 16),
+        textColor: .orangeButton,
+        backgroundColor: .clear
+    )
+
     init(
         viewModel: AuthViewModel,
         router: AuthRouter
@@ -82,7 +89,7 @@ private extension AuthVC {
     }
 
     func addSubviews() {
-        [titleLabel, stack, button].addOnParent(view: view)
+        [titleLabel, stack, button, registerButton].addOnParent(view: view)
     }
 
     func addConstraints() {
@@ -94,6 +101,10 @@ private extension AuthVC {
         stack.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).inset(-16)
             $0.left.right.equalToSuperview().inset(16)
+        }
+        registerButton.snp.makeConstraints {
+            $0.top.equalTo(stack.snp.bottom).inset(-16)
+            $0.left.equalToSuperview().inset(16)
         }
         button.snp.makeConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
@@ -120,6 +131,10 @@ private extension AuthVC {
 
         button.tapPublisher
             .sink { [weak self] in self?.viewModel.didTapContinue() }
+            .store(in: &subscriptions)
+        
+        registerButton.tapPublisher
+            .sink { [weak self] in self?.router.register() }
             .store(in: &subscriptions)
     }
 

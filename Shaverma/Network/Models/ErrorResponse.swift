@@ -28,8 +28,7 @@ struct ErrorResponse: Error, Codable {
     let error: Bool
     let reason: Reason
 
-    enum Reason: String, Codable, UnsupportedCase {
-        static var unsupportedCase: ErrorResponse.Reason = .unknown
+    enum Reason: String, Codable {
         case unauthorized = "Unauthorized"
         case forbidden = "Forbidden"
         case notFound = "NotFound"
@@ -42,5 +41,14 @@ struct ErrorResponse: Error, Codable {
         case badGateway = "Bad Gateway"
         case serviceUnavailable = "Service Unavailable"
         case gatewayTimeout = "Gateway Timeout"
+    }
+}
+
+struct ErrorRowResponse: Error, LocalizedError, Codable {
+    let error: Bool
+    let reason: String
+
+    var errorDescription: String? {
+        reason
     }
 }

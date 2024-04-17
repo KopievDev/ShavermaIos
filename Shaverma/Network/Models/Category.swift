@@ -19,3 +19,4 @@ extension Category {
         .init(id: .init(), name: "Соусы")
     ]
 }
+

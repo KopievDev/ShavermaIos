@@ -59,7 +59,6 @@ final class TextField: Component {
                 textfield.keyboardType = keyboardType
             }.store(in: &subscriptions)
 
-
         viewModel.$placeholder
             .sink { [weak self] placeholder in guard let self else { return }
                 textfield.placeholder = placeholder
@@ -71,6 +70,10 @@ final class TextField: Component {
                 render(isValid: validator.didEnter(text: text))
             }
         }.store(in: &subscriptions)
+    }
+
+    func set(text: String) {
+        textfield.text = text
     }
 
     func render(isValid: Bool?) {
@@ -122,5 +125,26 @@ struct EmailValidator: Validator {
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: text)
 
+    }
+}
+
+struct PhoneValidator: Validator {
+
+    func didEnter(text: String) -> Bool? {
+        guard !text.isEmpty else { return nil }
+        let phoneRegex = #"^\+?\d{1,3}[- ]?\(?\d{3}\)?[- ]?\d{3}[- ]?\d{2}[- ]?\d{2}$"#
+        let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phonePredicate.evaluate(with: text)
+    }
+}
+
+struct NameValidator: Validator {
+
+    func didEnter(text: String) -> Bool? {
+        guard !text.isEmpty else { return nil }
+        // Пример регулярного выражения для валидации имени
+        let nameRegex = "^[A-Za-zА-Яа-я]+(?: [A-Za-zА-Яа-я]+)*$" // Простая проверка на буквы и пробелы
+        let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
+        return namePredicate.evaluate(with: text)
     }
 }

@@ -49,11 +49,13 @@ final class ShavermaAPI {
     }
 
     func logout() {
+        guard !token.isEmpty else { return }
         Task {
             do {
-                token = ""
                 _ = try await logout()
+                token = ""
             } catch {
+                token = ""
                 print(error.localizedDescription)
             }
         }
@@ -74,6 +76,14 @@ extension ShavermaAPI {
     /// Авторизация
     func login(email: String, password: String) async throws -> TokenResponse {
         guard let request = request(endpoint: "login", basic: "\(email):\(password)") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+
+    /// Регистрация
+    func register(model: RegisterRequest) async throws -> TokenResponse {
+        guard let request = request(endpoint: "register", method: .post, body: model) else {
             throw NSError(domain: "Bad request", code: -1)
         }
         return try await network.send(request)

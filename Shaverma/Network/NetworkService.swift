@@ -48,6 +48,8 @@ final class BaseNetworkService: NetworkService {
                 default: break
                 }
                 throw error
+            } else if let error = try? JSONDecoder().decode(ErrorRowResponse.self, from: data) {
+                throw error
             } else {
                 throw error
             }

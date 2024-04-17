@@ -230,7 +230,7 @@ private extension AddressSelectVC {
     func saveAddress() {
         Task { @MainActor in
             do {
-                let address = try await viewModel.saveAddress()
+                _ = try await viewModel.saveAddress()
                 router.goBack()
             } catch {
                 showErrorAlert(error.localizedDescription)
