@@ -22,3 +22,4 @@ struct AddressResponse: Content, WithExample {
 
     static var example: AddressResponse = .init(text: "Москва, Рязановское шоссе, 23к1, 387", latitude: 123, longitude: 123)
 }
+

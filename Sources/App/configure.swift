@@ -23,6 +23,8 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(Products.AddImageMigration())
     app.migrations.add(Addresses.Migration())
     app.migrations.add(TelegramData.Migration())
+    app.migrations.add(Promos.Migration())
+
 
     try await app.autoMigrate()
 
