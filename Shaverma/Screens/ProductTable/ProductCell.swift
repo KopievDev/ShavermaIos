@@ -31,9 +31,9 @@ final class ProductCell: BaseCell<Product> {
 
     private let descLabel = UILabel(
         text: "Самая вкусная на гриле!\nСвежий вкус для свежего дыхания",
-        font: .regular(11),
+        font: .regular(10),
         textColor: .secondaryText,
-        lines: 0,
+        lines: 3,
         alignment: .left
     )
 
@@ -80,6 +80,7 @@ final class ProductCell: BaseCell<Product> {
 
 private extension ProductCell {
     func setupUI() {
+        selectionStyle = .none
         [formView].addOnParent(view: contentView)
         formView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(4)

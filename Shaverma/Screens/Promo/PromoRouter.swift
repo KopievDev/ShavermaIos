@@ -10,7 +10,7 @@ import UIKit
 final class PromoRouter: Router {
     weak var vc: PromoVC?
 
-    func routeToSomeScreen() {
-       
+    func routeToDetail(promo: PromoResponse) {
+        navigator.push(screen: PromoViewerScreen(promo: promo))
     }
 }

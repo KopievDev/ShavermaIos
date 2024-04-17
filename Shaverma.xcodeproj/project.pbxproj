@@ -36,6 +36,13 @@
 		B5968C552BCEB3C400C7E426 /* AdressShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */; };
 		B5968C572BCEBC0B00C7E426 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C562BCEBC0B00C7E426 /* LoaderView.swift */; };
 		B5968C592BCEBC5F00C7E426 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C582BCEBC5F00C7E426 /* BlurView.swift */; };
+		B5968C5B2BCF881900C7E426 /* PromoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C5A2BCF881900C7E426 /* PromoResponse.swift */; };
+		B5968C5D2BCF88B100C7E426 /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C5C2BCF88B100C7E426 /* PromoCell.swift */; };
+		B5968C632BCF8AFF00C7E426 /* PromoViewerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C5F2BCF8AFF00C7E426 /* PromoViewerRouter.swift */; };
+		B5968C642BCF8AFF00C7E426 /* PromoViewerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C602BCF8AFF00C7E426 /* PromoViewerScreen.swift */; };
+		B5968C652BCF8AFF00C7E426 /* PromoViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C612BCF8AFF00C7E426 /* PromoViewerVC.swift */; };
+		B5968C662BCF8AFF00C7E426 /* PromoViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C622BCF8AFF00C7E426 /* PromoViewerViewModel.swift */; };
+		B5968C682BCF8D4400C7E426 /* ScrollStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C672BCF8D4400C7E426 /* ScrollStack.swift */; };
 		B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB02BBBC67300613015 /* AppDelegate.swift */; };
 		B5D0DEB32BBBC67300613015 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */; };
 		B5D0DEBA2BBBC67400613015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D0DEB92BBBC67400613015 /* Assets.xcassets */; };
@@ -138,6 +145,13 @@
 		B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressShowViewModel.swift; sourceTree = "<group>"; };
 		B5968C562BCEBC0B00C7E426 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		B5968C582BCEBC5F00C7E426 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		B5968C5A2BCF881900C7E426 /* PromoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoResponse.swift; sourceTree = "<group>"; };
+		B5968C5C2BCF88B100C7E426 /* PromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCell.swift; sourceTree = "<group>"; };
+		B5968C5F2BCF8AFF00C7E426 /* PromoViewerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewerRouter.swift; sourceTree = "<group>"; };
+		B5968C602BCF8AFF00C7E426 /* PromoViewerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewerScreen.swift; sourceTree = "<group>"; };
+		B5968C612BCF8AFF00C7E426 /* PromoViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewerVC.swift; sourceTree = "<group>"; };
+		B5968C622BCF8AFF00C7E426 /* PromoViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewerViewModel.swift; sourceTree = "<group>"; };
+		B5968C672BCF8D4400C7E426 /* ScrollStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollStack.swift; sourceTree = "<group>"; };
 		B5D0DEAD2BBBC67300613015 /* Shaverma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaverma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D0DEB02BBBC67300613015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -257,10 +271,12 @@
 		B58056242BBFDDAA000374E9 /* Promo */ = {
 			isa = PBXGroup;
 			children = (
+				B5968C5E2BCF8ADE00C7E426 /* PromoViewer */,
 				B58056252BBFDDB5000374E9 /* PromoRouter.swift */,
 				B58056262BBFDDB5000374E9 /* PromoScreen.swift */,
 				B58056272BBFDDB5000374E9 /* PromoVC.swift */,
 				B58056282BBFDDB5000374E9 /* PromoViewModel.swift */,
+				B5968C5C2BCF88B100C7E426 /* PromoCell.swift */,
 			);
 			path = Promo;
 			sourceTree = "<group>";
@@ -286,6 +302,17 @@
 				B54950C42BCD636A000BA280 /* LocationService.swift */,
 			);
 			path = AddressSelect;
+			sourceTree = "<group>";
+		};
+		B5968C5E2BCF8ADE00C7E426 /* PromoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				B5968C5F2BCF8AFF00C7E426 /* PromoViewerRouter.swift */,
+				B5968C602BCF8AFF00C7E426 /* PromoViewerScreen.swift */,
+				B5968C612BCF8AFF00C7E426 /* PromoViewerVC.swift */,
+				B5968C622BCF8AFF00C7E426 /* PromoViewerViewModel.swift */,
+			);
+			path = PromoViewer;
 			sourceTree = "<group>";
 		};
 		B5D0DEA42BBBC67300613015 = {
@@ -370,6 +397,7 @@
 			children = (
 				B5D0DF212BBBF75300613015 /* CardCollectionView.swift */,
 				B5968C562BCEBC0B00C7E426 /* LoaderView.swift */,
+				B5968C672BCF8D4400C7E426 /* ScrollStack.swift */,
 				B5968C582BCEBC5F00C7E426 /* BlurView.swift */,
 				B5D0DF0B2BBBCDBD00613015 /* Button.swift */,
 				B5D0DF0D2BBBCDBE00613015 /* Component.swift */,
@@ -450,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D0DF1B2BBBE4B900613015 /* Category.swift */,
+				B5968C5A2BCF881900C7E426 /* PromoResponse.swift */,
 				B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */,
 				B5D0DF1D2BBBE79C00613015 /* Product.swift */,
 				B54950C82BCE55AD000BA280 /* AddressResponse.swift */,
@@ -623,8 +652,14 @@
 				B5D0DED62BBBC7D500613015 /* NavigationBar.swift in Sources */,
 				B58056322BBFDE10000374E9 /* CartRouter.swift in Sources */,
 				B580562C2BBFDDB5000374E9 /* PromoViewModel.swift in Sources */,
+				B5968C5B2BCF881900C7E426 /* PromoResponse.swift in Sources */,
+				B5968C5D2BCF88B100C7E426 /* PromoCell.swift in Sources */,
 				B580561A2BBFC4CF000374E9 /* PreferencesKey.swift in Sources */,
 				B5D0DF242BBC0D1500613015 /* Tabbar.swift in Sources */,
+				B5968C632BCF8AFF00C7E426 /* PromoViewerRouter.swift in Sources */,
+				B5968C642BCF8AFF00C7E426 /* PromoViewerScreen.swift in Sources */,
+				B5968C652BCF8AFF00C7E426 /* PromoViewerVC.swift in Sources */,
+				B5968C662BCF8AFF00C7E426 /* PromoViewerViewModel.swift in Sources */,
 				B5D0DF5B2BBEEB8700613015 /* AuthScreen.swift in Sources */,
 				B58056342BBFDE10000374E9 /* CartVC.swift in Sources */,
 				B5968C522BCEB3C400C7E426 /* AdressShowRouter.swift in Sources */,
@@ -674,6 +709,7 @@
 				B5D0DF202BBBEE6F00613015 /* ProductCell.swift in Sources */,
 				B5D0DF0E2BBBCDBE00613015 /* PageIndicator.swift in Sources */,
 				B58056332BBFDE10000374E9 /* CartScreen.swift in Sources */,
+				B5968C682BCF8D4400C7E426 /* ScrollStack.swift in Sources */,
 				B5968C592BCEBC5F00C7E426 /* BlurView.swift in Sources */,
 				B5D0DF272BBC533700613015 /* NetworkService.swift in Sources */,
 				B5D0DEF42BBBCA9300613015 /* UIButton+Stylable.swift in Sources */,
