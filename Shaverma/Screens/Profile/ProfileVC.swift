@@ -80,6 +80,8 @@ extension ProfileVC: UITableViewDelegate {
             router.logout()
         case "address":
             router.routeToShowAddress()
+        case "myData":
+            router.routeToShowMe()
         default: break
         }
     }

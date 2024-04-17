@@ -14,6 +14,10 @@ final class ProfileRouter: Router {
         navigator.push(screen: AdressShowScreen())
     }
 
+    func routeToShowMe() {
+        navigator.push(screen: ProfileViewerScreen())
+    }
+
     func logout() {
         navigator.makeRoot(screen: AuthScreen())
     }

@@ -48,6 +48,12 @@
 		B5968C712BCF986D00C7E426 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C6D2BCF986D00C7E426 /* RegistrationVC.swift */; };
 		B5968C722BCF986D00C7E426 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C6E2BCF986D00C7E426 /* RegistrationViewModel.swift */; };
 		B5968C742BCF9F1100C7E426 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C732BCF9F1100C7E426 /* RegisterRequest.swift */; };
+		B5968C7A2BCFAB4000C7E426 /* ProfileViewerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C762BCFAB4000C7E426 /* ProfileViewerRouter.swift */; };
+		B5968C7B2BCFAB4000C7E426 /* ProfileViewerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C772BCFAB4000C7E426 /* ProfileViewerScreen.swift */; };
+		B5968C7C2BCFAB4000C7E426 /* ProfileViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C782BCFAB4000C7E426 /* ProfileViewerVC.swift */; };
+		B5968C7D2BCFAB4000C7E426 /* ProfileViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C792BCFAB4000C7E426 /* ProfileViewerViewModel.swift */; };
+		B5968C7F2BCFABA500C7E426 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C7E2BCFABA500C7E426 /* TextCell.swift */; };
+		B5968C812BCFACB800C7E426 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5968C802BCFACB800C7E426 /* UserResponse.swift */; };
 		B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB02BBBC67300613015 /* AppDelegate.swift */; };
 		B5D0DEB32BBBC67300613015 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */; };
 		B5D0DEBA2BBBC67400613015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D0DEB92BBBC67400613015 /* Assets.xcassets */; };
@@ -162,6 +168,12 @@
 		B5968C6D2BCF986D00C7E426 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		B5968C6E2BCF986D00C7E426 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		B5968C732BCF9F1100C7E426 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		B5968C762BCFAB4000C7E426 /* ProfileViewerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewerRouter.swift; sourceTree = "<group>"; };
+		B5968C772BCFAB4000C7E426 /* ProfileViewerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewerScreen.swift; sourceTree = "<group>"; };
+		B5968C782BCFAB4000C7E426 /* ProfileViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewerVC.swift; sourceTree = "<group>"; };
+		B5968C792BCFAB4000C7E426 /* ProfileViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewerViewModel.swift; sourceTree = "<group>"; };
+		B5968C7E2BCFABA500C7E426 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		B5968C802BCFACB800C7E426 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		B5D0DEAD2BBBC67300613015 /* Shaverma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaverma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D0DEB02BBBC67300613015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D0DEB22BBBC67300613015 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +282,7 @@
 		B580561B2BBFD5BC000374E9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B5968C752BCFAB2B00C7E426 /* ProfileViewer */,
 				B580561C2BBFD5C6000374E9 /* ProfileRouter.swift */,
 				B580561D2BBFD5C6000374E9 /* ProfileScreen.swift */,
 				B580561E2BBFD5C6000374E9 /* ProfileVC.swift */,
@@ -343,6 +356,18 @@
 				B5968C6E2BCF986D00C7E426 /* RegistrationViewModel.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		B5968C752BCFAB2B00C7E426 /* ProfileViewer */ = {
+			isa = PBXGroup;
+			children = (
+				B5968C762BCFAB4000C7E426 /* ProfileViewerRouter.swift */,
+				B5968C772BCFAB4000C7E426 /* ProfileViewerScreen.swift */,
+				B5968C782BCFAB4000C7E426 /* ProfileViewerVC.swift */,
+				B5968C792BCFAB4000C7E426 /* ProfileViewerViewModel.swift */,
+				B5968C7E2BCFABA500C7E426 /* TextCell.swift */,
+			);
+			path = ProfileViewer;
 			sourceTree = "<group>";
 		};
 		B5D0DEA42BBBC67300613015 = {
@@ -510,6 +535,7 @@
 				B5D0DF1B2BBBE4B900613015 /* Category.swift */,
 				B5968C732BCF9F1100C7E426 /* RegisterRequest.swift */,
 				B5968C5A2BCF881900C7E426 /* PromoResponse.swift */,
+				B5968C802BCFACB800C7E426 /* UserResponse.swift */,
 				B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */,
 				B5D0DF1D2BBBE79C00613015 /* Product.swift */,
 				B54950C82BCE55AD000BA280 /* AddressResponse.swift */,
@@ -698,6 +724,7 @@
 				B5968C542BCEB3C400C7E426 /* AdressShowVC.swift in Sources */,
 				B5968C552BCEB3C400C7E426 /* AdressShowViewModel.swift in Sources */,
 				B5D0DF1C2BBBE4B900613015 /* Category.swift in Sources */,
+				B5968C812BCFACB800C7E426 /* UserResponse.swift in Sources */,
 				B5D0DEF52BBBCA9300613015 /* UICollectionView+Stylable.swift in Sources */,
 				B5D0DF032BBBCA9C00613015 /* UIColor.swift in Sources */,
 				B5D0DEED2BBBCA8C00613015 /* Haptic.swift in Sources */,
@@ -705,6 +732,10 @@
 				B5D0DEB12BBBC67300613015 /* AppDelegate.swift in Sources */,
 				B5D0DF602BBEEC7100613015 /* TextField.swift in Sources */,
 				B5D0DF042BBBCA9C00613015 /* UIPasteboard.swift in Sources */,
+				B5968C7A2BCFAB4000C7E426 /* ProfileViewerRouter.swift in Sources */,
+				B5968C7B2BCFAB4000C7E426 /* ProfileViewerScreen.swift in Sources */,
+				B5968C7C2BCFAB4000C7E426 /* ProfileViewerVC.swift in Sources */,
+				B5968C7D2BCFAB4000C7E426 /* ProfileViewerViewModel.swift in Sources */,
 				B58056202BBFD5C6000374E9 /* ProfileRouter.swift in Sources */,
 				B580563E2BC04BD0000374E9 /* AddressSelectRouter.swift in Sources */,
 				B5D0DEE92BBBCA8700613015 /* TimeInterval.swift in Sources */,
@@ -730,6 +761,7 @@
 				B54950CB2BCEAC08000BA280 /* ErrorResponse.swift in Sources */,
 				B5D0DEE52BBBCA8700613015 /* Sequence.swift in Sources */,
 				B5D0DF052BBBCA9C00613015 /* UIStackView.swift in Sources */,
+				B5968C7F2BCFABA500C7E426 /* TextCell.swift in Sources */,
 				B58056212BBFD5C6000374E9 /* ProfileScreen.swift in Sources */,
 				B58056412BC04BD0000374E9 /* AddressSelectViewModel.swift in Sources */,
 				B5D0DEF62BBBCA9300613015 /* UIView+Stylable.swift in Sources */,

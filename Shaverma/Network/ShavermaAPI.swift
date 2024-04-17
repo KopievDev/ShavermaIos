@@ -135,4 +135,12 @@ extension ShavermaAPI {
         }
         return try await network.send(request)
     }
+
+    /// Получить промо акции
+    func getMe() async throws -> UserResponse {
+        guard let request = request(endpoint: "users/me") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
 }
