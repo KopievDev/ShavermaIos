@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 final class CartViewModel {
     @Published
@@ -15,6 +16,8 @@ final class CartViewModel {
     @Published
     var isLoading: Bool = false
     private var subscriptions: Set<AnyCancellable> = []
+    @Published
+    var amount: String?
 
     func viewDidLoad() {
         bind()
@@ -24,8 +27,10 @@ final class CartViewModel {
         CartStorage.shared.$cartResponse
             .compactMap { $0 }
             .sink { [weak self] resp in guard let self else { return }
-            cartResponse = resp
-            items = resp.products.compactMap { $0.product.with(count: $0.quantity) }
-        }.store(in: &subscriptions)
+                cartResponse = resp
+                items = resp.products.compactMap { $0.product.with(count: $0.quantity) }
+                let total = resp.totalAmount/Decimal(100)
+                amount = total.rubleString() ?? "0 ₽"
+            }.store(in: &subscriptions)
     }
 }
