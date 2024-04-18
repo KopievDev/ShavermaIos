@@ -17,6 +17,7 @@ final class ProfileViewerVC: UIViewController {
     lazy var tableView: UITableView = {
         $0.backgroundColor(.staticWhite).separatorStyle = .none
         $0.register(TextCell.self)
+        $0.backgroundColor(.staticWhite)
         $0.contentInset = .init(top: 8, left: 0, bottom: 76, right: 0)
         $0.scrollsToTop = true
         $0.verticalScrollIndicatorInsets.top = 8

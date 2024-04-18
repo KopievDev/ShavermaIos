@@ -22,7 +22,7 @@ struct PromoViewerScreen: Screen {
             lines: 0,
             alignment: .center
         )
-        vc.hidesBottomBarWhenPushed = true
+        vc.hidesBottomBarWhenPushed = false
         return vc
     }
 }

@@ -13,7 +13,7 @@ struct PromoScreen: Screen {
         let viewModel = PromoViewModel()
         let router = PromoRouter()
         let vc = PromoVC(viewModel: viewModel, router: router)
-        vc.tabBarItem.image = .gift
+        vc.tabBarItem.image = .promo
         vc.title = "Акции"
         vc.navigationItem.titleView = UILabel(
             text: "Акции",

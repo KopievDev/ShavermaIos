@@ -103,6 +103,7 @@ internal enum Assets {
   internal static let pinCodeKeyboard = ImageAsset(name: "Pin code keyboard")
   internal static let plasticCard = ImageAsset(name: "Plastic card")
   internal static let plus = ImageAsset(name: "Plus")
+  internal static let promo = ImageAsset(name: "Promo")
   internal static let qrScanning = ImageAsset(name: "QR scanning")
   internal static let question = ImageAsset(name: "Question")
   internal static let ratio = ImageAsset(name: "Ratio")

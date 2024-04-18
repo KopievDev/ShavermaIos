@@ -121,6 +121,7 @@ final class ProductCell: BaseCell<Product> {
 private extension ProductCell {
     func setupUI() {
         selectionStyle = .none
+        backgroundColor(.clear)
         [formView].addOnParent(view: contentView)
         formView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(4)

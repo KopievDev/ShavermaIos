@@ -31,6 +31,7 @@ final class PromoCell: BaseCell<PromoResponse> {
 
 private extension PromoCell {
     func setupUI() {
+        backgroundColor(.clear)
         selectionStyle = .none
         [imgView].addOnParent(view: contentView)
         imgView.snp.makeConstraints {
