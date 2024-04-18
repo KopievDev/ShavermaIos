@@ -61,18 +61,7 @@ struct OrderController: RouteCollection {
                 totalAmount: 0
             )
             try await cart.save(on: req.db)
-            let cartFromBd = try await Cart.query(on: req.db)
-                .filter(\.$user.$id == user.requireID())
-                .with(\.$items) {
-                    $0.with(\.$product) {
-                        $0.with(\.$category)
-                    }
-                }
-                .first()
-            guard let cartFromBd else {
-                throw Abort(.badRequest)
-            }
-            return try cartFromBd.response()
+            return try await getCartFromBD(user: user, db: req.db)
         }
     }
 
@@ -114,18 +103,7 @@ struct OrderController: RouteCollection {
                 )
                 try await cartItem.save(on: req.db)
             }
-            let cartFromBd = try await Cart.query(on: req.db)
-                .filter(\.$user.$id == user.requireID())
-                .with(\.$items) {
-                    $0.with(\.$product) {
-                        $0.with(\.$category)
-                    }
-                }
-                .first()
-            guard let cartFromBd else {
-                throw Abort(.badRequest)
-            }
-            return try cartFromBd.response()
+            return try await getCartFromBD(user: user, db: req.db)
         } else {
             let cart = Cart(
                 id: .generateRandom(),
@@ -141,18 +119,22 @@ struct OrderController: RouteCollection {
                 price: product.price * Decimal(cartRequest.quantity)
             )
             try await cartItem.save(on: req.db)
-            let cartFromBd = try await Cart.query(on: req.db)
-                .filter(\.$user.$id == user.requireID())
-                .with(\.$items) {
-                    $0.with(\.$product) {
-                        $0.with(\.$category)
-                    }
-                }
-                .first()
-            guard let cartFromBd else {
-                throw Abort(.badRequest)
-            }
-            return try cartFromBd.response()
+            return try await getCartFromBD(user: user, db: req.db)
         }
+    }
+
+    func getCartFromBD(user: User, db: Database) async throws -> CartResponse {
+        let cartFromBd = try await Cart.query(on: db)
+            .filter(\.$user.$id == user.requireID())
+            .with(\.$items) {
+                $0.with(\.$product) {
+                    $0.with(\.$category)
+                }
+            }
+            .first()
+        guard let cartFromBd else {
+            throw Abort(.badRequest)
+        }
+        return try cartFromBd.response()
     }
 }
