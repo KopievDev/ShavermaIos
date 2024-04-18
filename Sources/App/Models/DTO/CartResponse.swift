@@ -11,7 +11,7 @@ import SwiftOpenAPI
 import VaporToOpenAPI
 
 @OpenAPIDescriptable()
-/// Объект промо
+/// Объект корзины
 struct CartResponse: Content, WithExample {
     /// id
     let id: UUID
