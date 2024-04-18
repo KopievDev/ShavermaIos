@@ -50,7 +50,7 @@ final class TextCell: BaseCell<TextCellViewModel> {
 
 private extension TextCell {
     func setupUI() {
-        selectionStyle = .none
+        backgroundColor(.clear).selectionStyle = .none
         [textStack].addOnParent(view: contentView)
         textStack.snp.makeConstraints {
             $0.top.bottom.equalToSuperview().inset(4)

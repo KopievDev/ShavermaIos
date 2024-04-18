@@ -16,6 +16,7 @@ final class ProfileVC: UIViewController {
     private var subscriptions: Set<AnyCancellable> = []
     private lazy var tableView: UITableView = {
         $0.register(MenuCell.self)
+        $0.backgroundColor(.staticWhite)
         $0.contentInset = .init(top: 8, left: 0, bottom: 76, right: 0)
         $0.scrollsToTop = true
         $0.delegate = self
@@ -52,7 +53,7 @@ private extension ProfileVC {
     }
 
     func setupView() {
-
+        view.backgroundColor(.staticWhite)
     }
 
     func addSubviews() {
@@ -101,6 +102,7 @@ class MenuCell: BaseCell<MenuItem> {
 
     override func commonInit() {
         [titleLabel, imgView].addOnParent(view: contentView)
+        backgroundColor(.clear)
 
         titleLabel.snp.makeConstraints {
             $0.left.equalToSuperview().inset(16)
