@@ -115,10 +115,12 @@ private extension CartVC {
     }
 
     func bind() {
-        tableView.bind(viewModel.$items, cellType: ProductCell.self) { [unowned self] index, model, cell in
-            cell.render(viewModel: model)
-            cell.productAction = { product in
-                self.update(product: product)
+        tableView.bindDiffable(viewModel.$items) { [unowned self] table, index, model in
+            table.dequeueCell(ProductCell.self, index) { cell in
+                cell.render(viewModel: model)
+                cell.productAction = { product in
+                    self.update(product: product)
+                }
             }
         }.store(in: &subscriptions)
 

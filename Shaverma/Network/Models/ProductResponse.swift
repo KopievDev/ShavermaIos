@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductResponse: Codable {
+struct ProductResponse: Codable, Hashable {
     let id: UUID
     let name: String
     let desc: String
@@ -28,7 +28,7 @@ struct ProductResponse: Codable {
 
 extension ProductResponse {
 
-    func with(count: Int) -> ProductResponse {
+    func with(count: Int?) -> ProductResponse {
         ProductResponse(
             id: id,
             name: name,

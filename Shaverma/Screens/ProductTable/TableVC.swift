@@ -49,6 +49,18 @@ class TableVC: UIViewController, WithTable {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+
+//        CartStorage.shared.$cartResponse.sink { [weak self] resp in guard let self, let resp else { return }
+//            items = items.map { product in
+//                for item in resp.products {
+//                    if item.product.id == product.id {
+//                        return product.with(count: item.product.count)
+//                    }
+//                }
+//                return product
+//            }
+//        }.store(in: &subscriptions)
+
         tableView.bind($items, cellType: ProductCell.self) { [unowned self] index, model, cell in
             cell.render(viewModel: model)
             cell.productAction = { product in
