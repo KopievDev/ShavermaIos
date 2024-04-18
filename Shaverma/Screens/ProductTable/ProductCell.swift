@@ -10,9 +10,9 @@ import SnapKit
 import Combine
 import CombineCocoa
 
-typealias ProductBlock = ((Product) -> Void)
+typealias ProductBlock = ((ProductResponse) -> Void)
 
-final class ProductCell: BaseCell<Product> {
+final class ProductCell: BaseCell<ProductResponse> {
 
     private let formView = UIView()
         .backgroundColor(.primaryBase)
@@ -103,7 +103,7 @@ final class ProductCell: BaseCell<Product> {
         arrangedSubviews: [priceLabel, countLabel]
     )
 
-    @Published private var product: Product?
+    @Published private var product: ProductResponse?
     var productAction: ProductBlock?
 
     private var subscriptions: Set<AnyCancellable> = []
@@ -113,7 +113,7 @@ final class ProductCell: BaseCell<Product> {
         bind()
     }
 
-    override func render(viewModel: Product) {
+    override func render(viewModel: ProductResponse) {
         product = viewModel
     }
 }

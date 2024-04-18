@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable {
+struct ProductResponse: Codable {
     let id: UUID
     let name: String
     let desc: String
@@ -26,8 +26,22 @@ struct Product: Codable {
     }
 }
 
-extension Product {
-    static let shaverma: [Product] = [
+extension ProductResponse {
+
+    func with(count: Int) -> ProductResponse {
+        ProductResponse(
+            id: id,
+            name: name,
+            desc: desc,
+            price: price,
+            imageUrl: imageUrl,
+            count: count
+        )
+    }
+}
+
+extension ProductResponse {
+    static let shaverma: [ProductResponse] = [
         .init(
             name: "Шаурма",
             desc: "Самая вкусная на гриле!\nСвежий вкус для свежего дыхания",
@@ -102,7 +116,7 @@ extension Product {
         ),
     ]
 
-    static let zakuson: [Product] = [
+    static let zakuson: [ProductResponse] = [
         .init(
             name: "Картошка ФРИИ",
             desc: "Освободи картоху, чтобы не было плохо",
@@ -141,7 +155,7 @@ extension Product {
         ),
         ]
 
-    static let drinks: [Product] = [
+    static let drinks: [ProductResponse] = [
         .init(
             name: "Лимонад Айсти",
             desc: "Холодный, как сердце твоей бывшей",
@@ -216,7 +230,7 @@ extension Product {
         ),
         ]
 
-    static let sauses: [Product] = [
+    static let sauses: [ProductResponse] = [
         .init(
             name: "Горячий",
             desc: "Жгучий соус для вкусной картохи",

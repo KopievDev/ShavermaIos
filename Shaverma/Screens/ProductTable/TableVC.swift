@@ -30,7 +30,7 @@ class TableVC: UIViewController, WithTable {
     let api = ShavermaAPI.shared
     let category: Category
 
-    @Published var items: [Product] = []
+    @Published var items: [ProductResponse] = []
     private var subscriptions: Set<AnyCancellable> = []
 
     init(category: Category) {
@@ -66,10 +66,10 @@ class TableVC: UIViewController, WithTable {
 
     }
 
-    func update(product: Product) {
+    func update(product: ProductResponse) {
         guard let index = items.firstIndex(where: { $0.id == product.id }) else { return }
         items[index] = product
-        //TODO: - Добавить отправку кол-ва
+        CartStorage.shared.send(product: product, quantity: product.count)
     }
 
     func loadProducts() {

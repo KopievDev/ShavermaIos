@@ -26,6 +26,7 @@ class Tabbar: UITabBarController {
         super.init(nibName: nil, bundle: nil)
         viewControllers = vcs
         setupUI()
+        CartStorage.shared.start()
     }
 
     required init?(coder: NSCoder) {

@@ -49,6 +49,7 @@ final class ShavermaAPI {
     }
 
     func logout() {
+        CartStorage.shared.logout()
         guard !token.isEmpty else { return }
         Task {
             do {
@@ -105,7 +106,7 @@ extension ShavermaAPI {
     }
 
     /// Список продуктов категории
-    func products(category: Category) async throws -> [Product] {
+    func products(category: Category) async throws -> [ProductResponse] {
         guard let request = request(endpoint: "products/\(category.id.uuidString)") else {
             throw NSError(domain: "Bad request", code: -1)
         }
@@ -136,9 +137,25 @@ extension ShavermaAPI {
         return try await network.send(request)
     }
 
-    /// Получить промо акции
+    /// Получить профиль
     func getMe() async throws -> UserResponse {
         guard let request = request(endpoint: "users/me") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+
+    /// Получить промо акции
+    func getCart() async throws -> CartResponse {
+        guard let request = request(endpoint: "cart") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
+
+    /// Получить промо акции
+    func putCart(model: CartRequest) async throws -> CartResponse {
+        guard let request = request(endpoint: "cart", method: .put, body: model) else {
             throw NSError(domain: "Bad request", code: -1)
         }
         return try await network.send(request)
