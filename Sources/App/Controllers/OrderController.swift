@@ -130,7 +130,18 @@ struct OrderController: RouteCollection {
                 price: product.price * Decimal(cartRequest.quantity)
             )
             try await cartItem.save(on: req.db)
-            return try cart.response()
+            let cartFromBd = try await Cart.query(on: req.db)
+                .filter(\.$user.$id == user.requireID())
+                .with(\.$items) {
+                    $0.with(\.$product) {
+                        $0.with(\.$category)
+                    }
+                }
+                .first()
+            guard let cartFromBd else {
+                throw Abort(.badRequest)
+            }
+            return try cartFromBd.response()
         }
     }
 }
