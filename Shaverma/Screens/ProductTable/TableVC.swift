@@ -49,8 +49,11 @@ class TableVC: UIViewController, WithTable {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        tableView.bind($items, cellType: ProductCell.self) { index, model, cell in
+        tableView.bind($items, cellType: ProductCell.self) { [unowned self] index, model, cell in
             cell.render(viewModel: model)
+            cell.productAction = { product in
+                self.update(product: product)
+            }
         }.store(in: &subscriptions)
 
         $isLoading
@@ -61,6 +64,12 @@ class TableVC: UIViewController, WithTable {
 
         loadProducts()
 
+    }
+
+    func update(product: Product) {
+        guard let index = items.firstIndex(where: { $0.id == product.id }) else { return }
+        items[index] = product
+        //TODO: - Добавить отправку кол-ва
     }
 
     func loadProducts() {

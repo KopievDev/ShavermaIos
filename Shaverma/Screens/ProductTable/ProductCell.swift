@@ -10,6 +10,8 @@ import SnapKit
 import Combine
 import CombineCocoa
 
+typealias ProductBlock = ((Product) -> Void)
+
 final class ProductCell: BaseCell<Product> {
 
     private let formView = UIView()
@@ -59,6 +61,42 @@ final class ProductCell: BaseCell<Product> {
         arrangedSubviews: [titleLabel, descLabel]
     )
 
+    private let selectButton = UIButton(
+        text: "   Выбрать   ",
+        font: .systemFont(ofSize: 15, weight: .bold),
+        textColor: .staticWhite,
+        backgroundColor: .orangeButton
+    ).cornerRadius(15)
+    private let deleteButton = UIButton(
+        text: "-",
+        font: .systemFont(ofSize: 15, weight: .bold),
+        textColor: .staticWhite,
+        backgroundColor: .orangeButton
+    ).cornerRadius(15)
+    private let plusButton = UIButton(
+        text: "+",
+        font: .systemFont(ofSize: 15, weight: .bold),
+        textColor: .staticWhite,
+        backgroundColor: .orangeButton
+    ).size(width: 30).cornerRadius(15)
+    private let countTextLabel = UILabel(
+        text: "1",
+        font: .systemFont(ofSize: 15, weight: .bold),
+        textColor: .secondaryText,
+        lines: 0,
+        alignment: .center
+    )
+    private lazy var orderStack = UIStackView(
+        axis: .horizontal,
+        spacing: 8,
+        arrangedSubviews: [
+            deleteButton,
+            countTextLabel,
+            plusButton,
+            selectButton
+        ]
+    ).size(height: 30)
+
     private lazy var priceStack = UIStackView(
         axis: .vertical,
         spacing: 4,
@@ -66,6 +104,8 @@ final class ProductCell: BaseCell<Product> {
     )
 
     @Published private var product: Product?
+    var productAction: ProductBlock?
+
     private var subscriptions: Set<AnyCancellable> = []
 
     override func commonInit() {
@@ -86,7 +126,7 @@ private extension ProductCell {
             $0.top.bottom.equalToSuperview().inset(4)
             $0.left.right.equalToSuperview().inset(16)
         }
-        [imgView, textStack, priceStack].addOnParent(view: formView)
+        [imgView, textStack, priceStack, orderStack].addOnParent(view: formView)
 
         imgView.snp.makeConstraints {
             $0.left.equalToSuperview().inset(16)
@@ -102,6 +142,10 @@ private extension ProductCell {
             $0.left.equalTo(imgView.snp.right).offset(8)
             $0.bottom.equalTo(imgView.snp.bottom)
         }
+        orderStack.snp.makeConstraints {
+            $0.right.equalToSuperview().inset(16)
+            $0.centerY.equalTo(priceStack.snp.centerY)
+        }
     }
 
     func bind() {
@@ -112,7 +156,43 @@ private extension ProductCell {
                 descLabel.text = product.desc
                 imgView.load(urlString: product.imageUrl ?? "")
                 priceLabel.text = (product.price/100).rubleString()
+                if let count = product.count {
+                    [deleteButton, countTextLabel, plusButton].forEach { $0.isHidden = false }
+                    selectButton.isHidden = true
+                    countTextLabel.text = "\(count)"
+                } else {
+                    [deleteButton, countTextLabel, plusButton].forEach { $0.isHidden = true }
+                    selectButton.isHidden = false
+                }
             }.store(in: &subscriptions)
+
+        selectButton.tapPublisher.sink { [weak self] in guard let self else { return }
+            Haptic.selection()
+            product?.count = 1
+            guard let product else { return }
+            productAction?(product)
+        }.store(in: &subscriptions)
+
+        deleteButton.tapPublisher.sink { [weak self] in 
+            guard let self, let count = product?.count else { return }
+            Haptic.selection()
+            if count == 1 {
+                product?.count = nil
+            } else if count > 1 {
+                product?.count = count - 1
+            }
+            guard let product else { return }
+            productAction?(product)
+        }.store(in: &subscriptions)
+
+        plusButton.tapPublisher.sink { [weak self] in
+            Haptic.selection()
+            guard let self, let count = product?.count else { return }
+            product?.count = count + 1
+            guard let product else { return }
+            productAction?(product)
+        }.store(in: &subscriptions)
+
     }
 }
 
