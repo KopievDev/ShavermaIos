@@ -63,6 +63,10 @@ final class CartVC: UIViewController {
         $0.bottom.equalToSuperview().inset(24)
     }.backgroundColor(.staticWhite).corners(.top)
 
+    private let emptyView = EmptyView(
+        viewModel: .init(icon: .cart, title: "Корзина пуста")
+    ).alpha(0)
+
     init(
         viewModel: CartViewModel,
         router: CartRouter
@@ -97,7 +101,7 @@ private extension CartVC {
     }
 
     func addSubviews() {
-        [tableView, bottomForm].addOnParent(view: view)
+        [tableView, bottomForm, emptyView].addOnParent(view: view)
         bottomForm.layer.shadowColor = UIColor.primaryBase.cgColor
         bottomForm.layer.shadowOpacity = 0.2
         bottomForm.layer.shadowRadius = 10
@@ -108,6 +112,9 @@ private extension CartVC {
     func addConstraints() {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        emptyView.snp.makeConstraints {
+            $0.left.right.centerY.equalToSuperview()
         }
         bottomForm.snp.makeConstraints {
             $0.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
@@ -122,6 +129,14 @@ private extension CartVC {
                     self.update(product: product)
                 }
             }
+        }.store(in: &subscriptions)
+
+        viewModel.$items
+            .map(\.isEmpty)
+            .sink { [weak self] isEmpty in guard let self else { return }
+                UIView.animate(withDuration: 0.2) {
+                    self.emptyView.alpha(isEmpty ? 1:0)
+                }
         }.store(in: &subscriptions)
 
         viewModel.$isLoading

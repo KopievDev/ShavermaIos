@@ -55,9 +55,12 @@ class TableVC: UIViewController, WithTable {
             .sink { [weak self] resp in guard let self, let resp else { return }
 
             items = items.map { product in
+                if resp.products.isEmpty {
+                    return product.with(count: nil)
+                }
                 for item in resp.products {
                     if item.product.id == product.id {
-                        return product.with(count: item.quantity)
+                        return product.with(count: item.quantity == 0 ? nil: item.quantity)
                     }
                 }
                 return product
