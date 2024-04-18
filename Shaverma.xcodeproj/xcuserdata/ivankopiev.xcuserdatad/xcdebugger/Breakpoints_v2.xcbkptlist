@@ -100,5 +100,51 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B4A1C1A-7382-48C7-930F-0E1DA392DA68"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shaverma/Screens/ProductTable/TableVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8B4A1C1A-7382-48C7-930F-0E1DA392DA68 - b2674ac8901e1ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Shaverma.CartResponse&gt;) -&gt; () in Shaverma.TableVC.viewDidLoad() -&gt; ()"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/Screens/ProductTable/TableVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57">
+               </Location>
+               <Location
+                  uuid = "8B4A1C1A-7382-48C7-930F-0E1DA392DA68 - 4e311fe9407e0736"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Shaverma.ProductResponse) -&gt; Shaverma.ProductResponse in closure #2 (Swift.Optional&lt;Shaverma.CartResponse&gt;) -&gt; () in Shaverma.TableVC.viewDidLoad() -&gt; ()"
+                  moduleName = "Shaverma"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivankopiev/Desktop/Work/OWN/Shaverma/Shaverma/Screens/ProductTable/TableVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
