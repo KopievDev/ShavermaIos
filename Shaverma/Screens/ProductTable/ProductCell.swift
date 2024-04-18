@@ -192,7 +192,6 @@ private extension ProductCell {
             guard let product else { return }
             productAction?(product)
         }.store(in: &subscriptions)
-
     }
 }
 

@@ -13,7 +13,7 @@ struct CartScreen: Screen {
         let viewModel = CartViewModel()
         let router = CartRouter()
         let vc = CartVC(viewModel: viewModel, router: router)
-        vc.tabBarItem.image = .comission
+        vc.tabBarItem.image = .cart
         vc.title = "Корзина"
         vc.navigationItem.titleView = UILabel(
             text: "Корзина",

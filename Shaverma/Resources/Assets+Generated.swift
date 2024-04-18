@@ -40,6 +40,7 @@ internal enum Assets {
   internal static let calendar = ImageAsset(name: "Calendar")
   internal static let callCenterLock = ImageAsset(name: "Call center lock")
   internal static let cardWithoutMagnetic = ImageAsset(name: "Card without magnetic")
+  internal static let cart = ImageAsset(name: "Cart")
   internal static let chat = ImageAsset(name: "Chat")
   internal static let chevroneDown = ImageAsset(name: "Chevrone down")
   internal static let chevroneRight = ImageAsset(name: "Chevrone right")
