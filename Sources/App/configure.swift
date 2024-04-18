@@ -24,8 +24,10 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(Addresses.Migration())
     app.migrations.add(TelegramData.Migration())
     app.migrations.add(Promos.Migration())
-
-
+    app.migrations.add(Cart.Migration())
+    app.migrations.add(CartItem.Migration())
+    app.migrations.add(Order.Migration())
+    app.migrations.add(OrderItem.Migration())
     try await app.autoMigrate()
 
     let encoder = JSONEncoder()

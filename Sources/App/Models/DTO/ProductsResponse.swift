@@ -34,6 +34,15 @@ struct ProductsResponse: Content, WithExample {
         price: 19900,
         category: .generateRandom()
     )
+
+    init(id: UUID, name: String, desc: String, imageUrl: String?, price: Decimal, category: UUID) {
+        self.id = id
+        self.name = name
+        self.desc = desc
+        self.imageUrl = imageUrl
+        self.price = price
+        self.category = category
+    }
 }
 
 @OpenAPIDescriptable()
