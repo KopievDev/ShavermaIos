@@ -134,6 +134,7 @@ private extension OrderViewerVC {
             numberLabel.text = "\(resp.numberOrder)"
             addressLabel.text = resp.address
             orderLabel.text = "Заказ на сумму: \((resp.totalAmount/100).rubleString() ?? "")"
+            title = "Заказ №\(resp.numberOrder)"
         }.store(in: &subscriptions)
 
         tableView.bind(viewModel.$items, cellType: OrderItemCell.self) { index, model, cell in
