@@ -120,6 +120,7 @@ struct OrderController: RouteCollection {
         }
         let orderResponse = try await getOrderResponse(id: order.requireID(), user: user, db: req.db)
         try await req.sendTG(message: orderResponse.orderMessage(payment: orderRequest.payment, user: user))
+        try await cart.delete(on: req.db)
         return orderResponse
     }
 

@@ -61,24 +61,6 @@ extension Order {
             try await database.schema(Order.schema).delete()
         }
     }
-
-//    struct UpdateOrderAddFields: AsyncMigration {
-//        var name: String { "UpdateOrderAddFields" }
-//
-//        func prepare(on database: Database) async throws {
-//            try await database.schema(Order.schema)
-//                .field("address", .string, .required)
-//                .field("order_number", .int, .required)
-//                .update()
-//        }
-//
-//        func revert(on database: Database) async throws {
-//            try await database.schema(Order.schema)
-//                .deleteField("address")
-//                .deleteField("order_number")
-//                .update()
-//        }
-//    }
 }
 
 
