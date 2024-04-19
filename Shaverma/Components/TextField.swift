@@ -58,6 +58,10 @@ final class TextField: Component {
             .sink { [weak self] keyboardType in guard let self else { return }
                 textfield.keyboardType = keyboardType
             }.store(in: &subscriptions)
+        viewModel.$textContentType
+            .sink { [weak self] textContentType in guard let self else { return }
+                textfield.textContentType = textContentType
+            }.store(in: &subscriptions)
 
         viewModel.$placeholder
             .sink { [weak self] placeholder in guard let self else { return }
@@ -104,6 +108,8 @@ extension TextField {
         var isSecureTextEntry: Bool = false
         @Published
         var keyboardType: UIKeyboardType
+        @Published
+        var textContentType: UITextContentType?
 
         var validator: Validator?
 
@@ -111,12 +117,14 @@ extension TextField {
             placeholder: String? = nil,
             isSecureTextEntry: Bool = false,
             validator: Validator? = nil,
-            keyboardType: UIKeyboardType = .default
+            keyboardType: UIKeyboardType = .default,
+            textContentType: UITextContentType? = nil
         ) {
             self.placeholder = placeholder
             self.isSecureTextEntry = isSecureTextEntry
             self.validator = validator
             self.keyboardType = keyboardType
+            self.textContentType = textContentType
         }
     }
 }

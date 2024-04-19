@@ -35,8 +35,13 @@ final class RegistrationViewModel {
     }
 
     func didTapNextButton() {
-        guard let name, let email, let familyName, let phone, let password, let confirmPassword, confirmPassword == password else {
+        guard let name, let email, let familyName, let phone, let password, let confirmPassword else {
             actionPublisher.send(.error("Проверьте заполняемые данные"))
+            return
+        }
+
+        guard confirmPassword == password else {
+            actionPublisher.send(.error("Пароли не совпадают"))
             return
         }
 

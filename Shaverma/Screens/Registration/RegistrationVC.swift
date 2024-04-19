@@ -25,39 +25,47 @@ final class RegistrationVC: UIViewController {
     private let mailTextfield = TextField(
         viewModel: .init(
             placeholder: "Почта",
-            validator: EmailValidator()
+            validator: EmailValidator(),
+            textContentType: .emailAddress
         )
     )
     private let passTextfield = TextField(
         viewModel: .init(
             placeholder: "Пароль",
             isSecureTextEntry: true,
-            validator: PassValidator()
+            validator: PassValidator(),
+            textContentType: .password
         )
     )
     private let confirmPassTextfield = TextField(
         viewModel: .init(
             placeholder: "Повторите пароль",
             isSecureTextEntry: true,
-            validator: PassValidator()
+            validator: PassValidator(),
+            textContentType: .newPassword
         )
     )
     private let phoneTextfield = TextField(
         viewModel: .init(
             placeholder: "Телефон",
-            validator: PhoneValidator()
+            validator: PhoneValidator(),
+            keyboardType: .phonePad,
+            textContentType: .telephoneNumber
         )
     )
     private let nameTextfield = TextField(
         viewModel: .init(
             placeholder: "Имя",
-            validator: NameValidator()
+            validator: NameValidator(),
+            textContentType: .givenName
         )
     )
     private let secondNameTextfield = TextField(
         viewModel: .init(
             placeholder: "Фамилия",
-            validator: NameValidator()
+            validator: NameValidator(),
+            textContentType: .familyName
+
         )
     )
     private lazy var stack = UIStackView(

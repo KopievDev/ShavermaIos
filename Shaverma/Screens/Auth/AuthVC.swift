@@ -24,14 +24,17 @@ final class AuthVC: UIViewController {
     private let mailTextfield = TextField(
         viewModel: .init(
             placeholder: "Почта",
-            validator: EmailValidator()
+            validator: EmailValidator(),
+            keyboardType: .emailAddress,
+            textContentType: .emailAddress
         )
     )
     private let passTextfield = TextField(
         viewModel: .init(
             placeholder: "Пароль",
             isSecureTextEntry: true,
-            validator: PassValidator()
+            validator: PassValidator(),
+            textContentType: .password
         )
     )
     private lazy var stack = UIStackView(
