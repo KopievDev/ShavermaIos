@@ -60,6 +60,24 @@ final class Navigator {
         )
     }
 
+    func makeRoot(
+        vc: UIViewController,
+        completion: BoolBlock? = nil
+    ) {
+        guard let window else { return }
+        window.rootViewController = vc
+        let options: UIView.AnimationOptions = .transitionCrossDissolve
+        let duration: TimeInterval = 0.3
+        UIView.transition(
+            with: window,
+            duration: duration,
+            options: options,
+            animations: {},
+            completion: completion
+        )
+    }
+
+
     func push(
         screen: any Screen,
         animated: Bool = true,

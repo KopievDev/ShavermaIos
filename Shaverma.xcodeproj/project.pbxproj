@@ -11,6 +11,9 @@
 		B54950C72BCE4779000BA280 /* MKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950C62BCE4779000BA280 /* MKPointAnnotation.swift */; };
 		B54950C92BCE55AD000BA280 /* AddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950C82BCE55AD000BA280 /* AddressResponse.swift */; };
 		B54950CB2BCEAC08000BA280 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */; };
+		B5560A8C2BD2AB7C00F325DF /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5560A8B2BD2AB7C00F325DF /* SplashVC.swift */; };
+		B5560A8F2BD2AD4C00F325DF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B5560A8E2BD2AD4C00F325DF /* Lottie */; };
+		B5560A922BD2AD5C00F325DF /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = B5560A912BD2AD5C00F325DF /* splash.json */; };
 		B55E70BD2BD25BE600872D3B /* OrderViewerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70B92BD25BE600872D3B /* OrderViewerRouter.swift */; };
 		B55E70BE2BD25BE600872D3B /* OrderViewerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70BA2BD25BE600872D3B /* OrderViewerScreen.swift */; };
 		B55E70BF2BD25BE600872D3B /* OrderViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70BB2BD25BE600872D3B /* OrderViewerVC.swift */; };
@@ -152,6 +155,8 @@
 		B54950C62BCE4779000BA280 /* MKPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotation.swift; sourceTree = "<group>"; };
 		B54950C82BCE55AD000BA280 /* AddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressResponse.swift; sourceTree = "<group>"; };
 		B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		B5560A8B2BD2AB7C00F325DF /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		B5560A912BD2AD5C00F325DF /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		B55E70B92BD25BE600872D3B /* OrderViewerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewerRouter.swift; sourceTree = "<group>"; };
 		B55E70BA2BD25BE600872D3B /* OrderViewerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewerScreen.swift; sourceTree = "<group>"; };
 		B55E70BB2BD25BE600872D3B /* OrderViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewerVC.swift; sourceTree = "<group>"; };
@@ -295,6 +300,7 @@
 				B5D0DF142BBBD30E00613015 /* SDWebImageSVGCoder in Frameworks */,
 				B5D0DED22BBBC74D00613015 /* CombineCocoa in Frameworks */,
 				B5D0DEDD2BBBCA6700613015 /* SnapKit in Frameworks */,
+				B5560A8F2BD2AD4C00F325DF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +316,14 @@
 				B5968C512BCEB3C400C7E426 /* AdressShowViewModel.swift */,
 			);
 			path = AdressShow;
+			sourceTree = "<group>";
+		};
+		B5560A902BD2AD5200F325DF /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B5560A912BD2AD5C00F325DF /* splash.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		B55E70CA2BD2620700872D3B /* Orders */ = {
@@ -521,6 +535,7 @@
 		B5D0DEC62BBBC69C00613015 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B5560A902BD2AD5200F325DF /* Animations */,
 				B5D0DF2A2BBEE4F900613015 /* Font */,
 				B5D0DED92BBBC97100613015 /* Assets+Generated.swift */,
 				B5D0DEB92BBBC67400613015 /* Assets.xcassets */,
@@ -599,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D0DEBB2BBBC67400613015 /* LaunchScreen.storyboard */,
+				B5560A8B2BD2AB7C00F325DF /* SplashVC.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -704,6 +720,7 @@
 				B5D0DED12BBBC74D00613015 /* CombineCocoa */,
 				B5D0DEDC2BBBCA6700613015 /* SnapKit */,
 				B5D0DF132BBBD30E00613015 /* SDWebImageSVGCoder */,
+				B5560A8E2BD2AD4C00F325DF /* Lottie */,
 			);
 			productName = Shaverma;
 			productReference = B5D0DEAD2BBBC67300613015 /* Shaverma.app */;
@@ -737,6 +754,7 @@
 				B5D0DED02BBBC74D00613015 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				B5D0DEDB2BBBCA6700613015 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B5D0DF122BBBD30E00613015 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				B5560A8D2BD2AD4C00F325DF /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = B5D0DEAE2BBBC67300613015 /* Products */;
 			projectDirPath = "";
@@ -764,6 +782,7 @@
 				B5D0DF452BBEE52400613015 /* MontserratAlternates-ExtraBold.ttf in Resources */,
 				B5D0DF4D2BBEE52400613015 /* MontserratAlternates-BoldItalic.ttf in Resources */,
 				B5D0DF4A2BBEE52400613015 /* MontserratAlternates-SemiBoldItalic.ttf in Resources */,
+				B5560A922BD2AD5C00F325DF /* splash.json in Resources */,
 				B5D0DF3D2BBEE52400613015 /* MontserratAlternates-Black.ttf in Resources */,
 				B5D0DF422BBEE52400613015 /* MontserratAlternates-LightItalic.ttf in Resources */,
 				B5D0DF412BBEE52400613015 /* MontserratAlternates-Italic.ttf in Resources */,
@@ -795,6 +814,7 @@
 				B55E70BF2BD25BE600872D3B /* OrderViewerVC.swift in Sources */,
 				B55E70C02BD25BE600872D3B /* OrderViewerViewModel.swift in Sources */,
 				B55E70CC2BD262E500872D3B /* OrderCell.swift in Sources */,
+				B5560A8C2BD2AB7C00F325DF /* SplashVC.swift in Sources */,
 				B54950C72BCE4779000BA280 /* MKPointAnnotation.swift in Sources */,
 				B5D0DEEE2BBBCA8C00613015 /* Collection+UIView.swift in Sources */,
 				B5D0DEE62BBBCA8700613015 /* String.swift in Sources */,
@@ -1117,6 +1137,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B5560A8D2BD2AD4C00F325DF /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
 		B5D0DED02BBBC74D00613015 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/KopievDev/CombineCocoa";
@@ -1144,6 +1172,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B5560A8E2BD2AD4C00F325DF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5560A8D2BD2AD4C00F325DF /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		B5D0DED12BBBC74D00613015 /* CombineCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B5D0DED02BBBC74D00613015 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
