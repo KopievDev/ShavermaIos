@@ -15,7 +15,7 @@ final class OrderViewerVC: UIViewController {
     private let router: OrderViewerRouter
     private var subscriptions: Set<AnyCancellable> = []
     private let titleLabel = UILabel(
-        text: "Заказ оформлен",
+        text: "Заказ",
         font: .bold(20),
         textColor: .primaryBase,
         lines: 1,
@@ -61,11 +61,12 @@ final class OrderViewerVC: UIViewController {
         lines: 0,
         alignment: .left
     )
-    private lazy var orderStack = UIStackView(
-        axis: .vertical,
-        spacing: 8,
-        arrangedSubviews: []
-    )
+    lazy var tableView: ContentSizedTableView = {
+        $0.backgroundColor(.staticWhite).separatorStyle = .none
+        $0.register(OrderItemCell.self)
+        $0.isScrollEnabled = false
+        return $0
+    }(ContentSizedTableView())
 
     private lazy var commonStack = UIStackView(
         axis: .vertical,
@@ -79,7 +80,7 @@ final class OrderViewerVC: UIViewController {
             addressLabel,
             UIView(height: 8),
             orderLabel,
-            orderStack
+            tableView
         ]
     )
     private lazy var scrollStack = ScrollStack(stack: commonStack)
@@ -129,32 +130,27 @@ private extension OrderViewerVC {
     }
 
     func bind() {
-
         viewModel.$order.sink { [weak self] resp in guard let self else { return }
             numberLabel.text = "\(resp.numberOrder)"
             addressLabel.text = resp.address
-            var views = resp.products.map { self.positionView(title: $0.product.name, quatity: "\($0.quantity) шт") }
-            let amount = resp.totalAmount/Decimal(100)
-            views.append(UILabel(
-                text: "Сумма: \(amount.rubleString() ?? "0 ₽ ")",
-                font: .bold(16),
-                textColor: .primaryBase,
-                lines: 1,
-                alignment: .left
-            ))
-            orderStack.addArrangedSubview(views: views)
+            orderLabel.text = "Заказ на сумму: \((resp.totalAmount/100).rubleString() ?? "")"
+        }.store(in: &subscriptions)
+
+        tableView.bind(viewModel.$items, cellType: OrderItemCell.self) { index, model, cell in
+            cell.render(viewModel: model)
         }.store(in: &subscriptions)
     }
+}
 
-    func positionView(title: String, quatity: String) -> UIView {
-        UIStackView(
-            axis: .horizontal,
-            spacing: 8,
-            arrangedSubviews: [
-                UILabel(text: title, font: .bold(14), textColor: .primaryBase, lines: 1, alignment: .left),
-                UILabel(text: quatity, font: .medium(14), textColor: .darkGray, lines: 1, alignment: .right)
-            ]
-        )
+
+final class ContentSizedTableView: UITableView {
+    override var contentSize:CGSize {
+        didSet {
+            invalidateIntrinsicContentSize() }
     }
 
+    override var intrinsicContentSize: CGSize {
+        layoutIfNeeded()
+        return CGSize(width: UIView.noIntrinsicMetric, height: contentSize.height + adjustedContentInset.top)
+    }
 }
