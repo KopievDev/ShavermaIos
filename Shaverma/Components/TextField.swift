@@ -35,7 +35,7 @@ final class TextField: Component {
     override func setupUI() {
         textfield.autocorrectionType = .no
         textfield.autocapitalizationType = .none
-
+        textfield.textColor = .primaryBase
         cornerRadius(16).backgroundColor(.disabledButton)
         [textfield].addOnParent(view: self)
 
@@ -61,7 +61,10 @@ final class TextField: Component {
 
         viewModel.$placeholder
             .sink { [weak self] placeholder in guard let self else { return }
-                textfield.placeholder = placeholder
+                textfield.attributedPlaceholder = NSAttributedString(
+                    string: placeholder ?? "",
+                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+                )
             }.store(in: &subscriptions)
 
         textfield.textPublisher.sink { [weak self] text in guard let self else { return }
