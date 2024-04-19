@@ -17,7 +17,7 @@ final class AuthViewModel {
     let actions = PassthroughSubject<ActionType, Never>()
     
     private let api = ShavermaAPI.shared
-    
+    @Published var isLoading = false
     var email: String = ""
     var password: String = ""
     
@@ -33,6 +33,8 @@ final class AuthViewModel {
     func didTapContinue() {
         Task {
             do {
+                isLoading = true
+                defer { isLoading = false }
                 let response = try await api.login(email: email, password: password)
                 api.token = response.token
                 actions.send(.successLogin)

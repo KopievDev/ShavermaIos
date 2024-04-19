@@ -31,13 +31,15 @@ final class RegistrationVC: UIViewController {
     private let passTextfield = TextField(
         viewModel: .init(
             placeholder: "Пароль",
-            isSecureTextEntry: true
+            isSecureTextEntry: true,
+            validator: PassValidator()
         )
     )
     private let confirmPassTextfield = TextField(
         viewModel: .init(
             placeholder: "Повторите пароль",
-            isSecureTextEntry: true
+            isSecureTextEntry: true,
+            validator: PassValidator()
         )
     )
     private let phoneTextfield = TextField(
@@ -185,6 +187,12 @@ private extension RegistrationVC {
         button.tapPublisher
             .sink { [weak self] in self?.viewModel.didTapNextButton() }
             .store(in: &subscriptions)
+
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in guard let self else { return }
+                $0 ? showLoader() : dismissLoader()
+            }.store(in: &subscriptions)
     }
 
     func routeToTabBar() {

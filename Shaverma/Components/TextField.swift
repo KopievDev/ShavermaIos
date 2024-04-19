@@ -148,3 +148,11 @@ struct NameValidator: Validator {
         return namePredicate.evaluate(with: text)
     }
 }
+
+struct PassValidator: Validator {
+
+    func didEnter(text: String) -> Bool? {
+        guard !text.isEmpty else { return nil }
+        return text.count >= 8
+    }
+}

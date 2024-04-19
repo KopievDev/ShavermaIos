@@ -21,6 +21,7 @@ final class RegistrationViewModel {
     var phone: String?
     var password: String?
     var confirmPassword: String?
+    @Published var isLoading = false
 
     private let api = ShavermaAPI.shared
 
@@ -40,6 +41,8 @@ final class RegistrationViewModel {
 
         Task { @MainActor in
             do {
+                isLoading = true
+                defer { isLoading = false }
                 let tokenResponse = try await api.register(
                     model: .init(
                         email: email,

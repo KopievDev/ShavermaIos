@@ -30,7 +30,8 @@ final class AuthVC: UIViewController {
     private let passTextfield = TextField(
         viewModel: .init(
             placeholder: "Пароль",
-            isSecureTextEntry: true
+            isSecureTextEntry: true,
+            validator: PassValidator()
         )
     )
     private lazy var stack = UIStackView(
@@ -136,6 +137,12 @@ private extension AuthVC {
         registerButton.tapPublisher
             .sink { [weak self] in self?.router.register() }
             .store(in: &subscriptions)
+        
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in guard let self else { return }
+                $0 ? showLoader() : dismissLoader()
+            }.store(in: &subscriptions)
     }
 
     func handle(actions: AuthViewModel.ActionType) {

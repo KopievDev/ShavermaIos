@@ -23,6 +23,6 @@ final class ProfileRouter: Router {
     }
 
     func logout() {
-        navigator.makeRoot(screen: AuthScreen())
+        navigator.makeRoot(vc: AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration))
     }
 }

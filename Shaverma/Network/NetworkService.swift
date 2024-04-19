@@ -43,7 +43,7 @@ final class BaseNetworkService: NetworkService {
                 switch error.reason {
                 case .unauthorized:
                     DispatchQueue.main.async {
-                        Navigator.shared.makeRoot(screen: AuthScreen())
+                        Navigator.shared.makeRoot(vc: AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration))
                     }
                 default: break
                 }
