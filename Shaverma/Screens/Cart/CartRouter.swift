@@ -10,6 +10,7 @@ import UIKit
 final class CartRouter: Router {
     weak var vc: CartVC?
 
-    func routeToSomeScreen() {
+    func routeToOrderScreen() {
+        navigator.push(screen: OrderScreen())
     }
 }

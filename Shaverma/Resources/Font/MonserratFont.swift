@@ -9,6 +9,7 @@ import UIKit
 
 enum MonserratFont {
     case regular(CGFloat)
+    case medium(CGFloat)
     case bold(CGFloat)
     case italic(CGFloat)
     case boldItalic(CGFloat)
@@ -27,6 +28,8 @@ enum MonserratFont {
             FontFamily.MontserratAlternates.boldItalic.font(size: size)
         case .semiBold(let size):
             FontFamily.MontserratAlternates.semiBold.font(size: size)
+        case .medium(let size):
+            FontFamily.MontserratAlternates.medium.font(size: size)
         }
     }
 }

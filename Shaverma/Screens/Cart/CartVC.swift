@@ -134,6 +134,7 @@ private extension CartVC {
         viewModel.$items
             .map(\.isEmpty)
             .sink { [weak self] isEmpty in guard let self else { return }
+                doneButton.viewModel.isEnabled = !isEmpty
                 UIView.animate(withDuration: 0.2) {
                     self.emptyView.alpha(isEmpty ? 1:0)
                 }
@@ -148,6 +149,10 @@ private extension CartVC {
         viewModel.$amount.sink { [weak self] amount in guard let self else { return }
             amountLabel.text = amount
         }.store(in: &subscriptions)
+
+        doneButton.tapPublisher
+            .sink { [weak self] in self?.router.routeToOrderScreen() }
+            .store(in: &subscriptions)
     }
     
     func update(product: ProductResponse) {

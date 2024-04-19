@@ -77,6 +77,17 @@ final class Navigator {
         }
     }
 
+    func popToRoot(
+        animated: Bool = true,
+        completion: VoidBlock? = nil
+    ) {
+        guard let topVc, let nav = topVc.navigationController else { return }
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        nav.popToRootViewController(animated: animated)
+        CATransaction.commit()
+    }
+
     func present(
         screen: any Screen,
         modalPresentationStyle: UIModalPresentationStyle = .formSheet,

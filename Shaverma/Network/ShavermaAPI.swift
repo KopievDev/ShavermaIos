@@ -160,4 +160,12 @@ extension ShavermaAPI {
         }
         return try await network.send(request)
     }
+
+    /// Оформить заказ
+    func order(model: OrderRequest) async throws -> OrderResponse {
+        guard let request = request(endpoint: "cart/order", method: .post, body: model) else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
 }
