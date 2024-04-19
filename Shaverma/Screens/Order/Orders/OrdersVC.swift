@@ -21,9 +21,11 @@ final class OrdersVC: UIViewController {
         $0.scrollsToTop = true
         $0.delegate = self
         $0.verticalScrollIndicatorInsets.top = 8
+        $0.refreshControl = refreshControl
         return $0
     }(UITableView())
-    
+    private let refreshControl = UIRefreshControl()
+
     init(
         viewModel: OrdersViewModel,
         router: OrdersRouter
@@ -76,6 +78,13 @@ private extension OrdersVC {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in guard let self else { return }
                 $0 ? showLoader() : dismissLoader()
+                if $0 { refreshControl.endRefreshing() } 
+            }.store(in: &subscriptions)
+
+        refreshControl
+            .publisher(for: .valueChanged)
+            .sink(unownedObject: self) { vc, _ in
+                vc.viewModel.viewDidLoad()
             }.store(in: &subscriptions)
     }
 }
