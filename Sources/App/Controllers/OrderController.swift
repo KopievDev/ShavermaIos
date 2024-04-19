@@ -53,6 +53,17 @@ struct OrderController: RouteCollection {
                 responseContentType: .application(.json),
                 responseDescription: "Success response"
             )
+        cart.get("orders", use: getOrders)
+            .openAPI(
+                tags: .init(name: "Order"),
+                summary: "Список заказов",
+                description: "Список заказов пользователя",
+                headers: .all(of: .type(Headers.AccessToken.self)),
+                contentType: .application(.json),
+                response: .type([OrderResponse].self),
+                responseContentType: .application(.json),
+                responseDescription: "Success response"
+            )
     }
 
     func getCart(req: Request) async throws -> CartResponse {
@@ -76,6 +87,19 @@ struct OrderController: RouteCollection {
             try await cart.save(on: req.db)
             return try await getCartResponseFromBD(user: user, db: req.db)
         }
+    }
+
+    func getOrders(req: Request) async throws -> [OrderResponse] {
+        let user = try req.auth.require(User.self)
+        let orders = try await Order.query(on: req.db)
+            .filter(\.$user.$id == user.requireID())
+            .with(\.$items) {
+                $0.with(\.$product) {
+                    $0.with(\.$category)
+                }
+            }
+            .all()
+        return try orders.map { try $0.response() }
     }
 
     func orderCart(req: Request) async throws -> OrderResponse {
