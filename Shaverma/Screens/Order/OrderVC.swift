@@ -203,7 +203,9 @@ private extension OrderVC {
             .sink { [weak self] in self?.viewModel.didTapOrder() }
             .store(in: &subscriptions)
 
-        viewModel.actions.sink { [weak self] action in guard let self else { return }
+        viewModel.actions
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] action in guard let self else { return }
             switch action {
             case .successOrder(let orderResponse):
                 router.routeToComplete(order: orderResponse)

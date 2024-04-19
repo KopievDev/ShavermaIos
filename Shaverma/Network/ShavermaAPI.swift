@@ -168,4 +168,11 @@ extension ShavermaAPI {
         }
         return try await network.send(request)
     }
+    /// Получить список заказов
+    func orders() async throws -> [OrderResponse] {
+        guard let request = request(endpoint: "cart/orders") else {
+            throw NSError(domain: "Bad request", code: -1)
+        }
+        return try await network.send(request)
+    }
 }

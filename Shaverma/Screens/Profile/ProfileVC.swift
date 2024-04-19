@@ -83,6 +83,8 @@ extension ProfileVC: UITableViewDelegate {
             router.routeToShowAddress()
         case "myData":
             router.routeToShowMe()
+        case "orders":
+            router.routeToOrders()
         default: break
         }
     }

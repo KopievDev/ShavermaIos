@@ -11,6 +11,15 @@
 		B54950C72BCE4779000BA280 /* MKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950C62BCE4779000BA280 /* MKPointAnnotation.swift */; };
 		B54950C92BCE55AD000BA280 /* AddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950C82BCE55AD000BA280 /* AddressResponse.swift */; };
 		B54950CB2BCEAC08000BA280 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */; };
+		B55E70BD2BD25BE600872D3B /* OrderViewerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70B92BD25BE600872D3B /* OrderViewerRouter.swift */; };
+		B55E70BE2BD25BE600872D3B /* OrderViewerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70BA2BD25BE600872D3B /* OrderViewerScreen.swift */; };
+		B55E70BF2BD25BE600872D3B /* OrderViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70BB2BD25BE600872D3B /* OrderViewerVC.swift */; };
+		B55E70C02BD25BE600872D3B /* OrderViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70BC2BD25BE600872D3B /* OrderViewerViewModel.swift */; };
+		B55E70C62BD261CF00872D3B /* OrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70C22BD261CF00872D3B /* OrdersRouter.swift */; };
+		B55E70C72BD261CF00872D3B /* OrdersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70C32BD261CF00872D3B /* OrdersScreen.swift */; };
+		B55E70C82BD261CF00872D3B /* OrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70C42BD261CF00872D3B /* OrdersVC.swift */; };
+		B55E70C92BD261CF00872D3B /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70C52BD261CF00872D3B /* OrdersViewModel.swift */; };
+		B55E70CC2BD262E500872D3B /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55E70CB2BD262E500872D3B /* OrderCell.swift */; };
 		B58056152BBFBF5C000374E9 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056142BBFBF5C000374E9 /* Toast.swift */; };
 		B58056182BBFC47D000374E9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056172BBFC47D000374E9 /* Preferences.swift */; };
 		B580561A2BBFC4CF000374E9 /* PreferencesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58056192BBFC4CF000374E9 /* PreferencesKey.swift */; };
@@ -143,6 +152,15 @@
 		B54950C62BCE4779000BA280 /* MKPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotation.swift; sourceTree = "<group>"; };
 		B54950C82BCE55AD000BA280 /* AddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressResponse.swift; sourceTree = "<group>"; };
 		B54950CA2BCEAC08000BA280 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		B55E70B92BD25BE600872D3B /* OrderViewerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewerRouter.swift; sourceTree = "<group>"; };
+		B55E70BA2BD25BE600872D3B /* OrderViewerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewerScreen.swift; sourceTree = "<group>"; };
+		B55E70BB2BD25BE600872D3B /* OrderViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewerVC.swift; sourceTree = "<group>"; };
+		B55E70BC2BD25BE600872D3B /* OrderViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewerViewModel.swift; sourceTree = "<group>"; };
+		B55E70C22BD261CF00872D3B /* OrdersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersRouter.swift; sourceTree = "<group>"; };
+		B55E70C32BD261CF00872D3B /* OrdersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersScreen.swift; sourceTree = "<group>"; };
+		B55E70C42BD261CF00872D3B /* OrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersVC.swift; sourceTree = "<group>"; };
+		B55E70C52BD261CF00872D3B /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
+		B55E70CB2BD262E500872D3B /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		B58056142BBFBF5C000374E9 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		B58056172BBFC47D000374E9 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		B58056192BBFC4CF000374E9 /* PreferencesKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesKey.swift; sourceTree = "<group>"; };
@@ -294,6 +312,18 @@
 			path = AdressShow;
 			sourceTree = "<group>";
 		};
+		B55E70CA2BD2620700872D3B /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				B55E70C22BD261CF00872D3B /* OrdersRouter.swift */,
+				B55E70C32BD261CF00872D3B /* OrdersScreen.swift */,
+				B55E70C42BD261CF00872D3B /* OrdersVC.swift */,
+				B55E70C52BD261CF00872D3B /* OrdersViewModel.swift */,
+				B55E70CB2BD262E500872D3B /* OrderCell.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
 		B58056162BBFC46E000374E9 /* Preference */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +428,8 @@
 		B5968C882BD22AC600C7E426 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				B55E70CA2BD2620700872D3B /* Orders */,
+				B5B8364D2BD25BAB00F2A9FF /* OrderViewer */,
 				B5968C932BD232C400C7E426 /* OrderComplete */,
 				B5968C892BD22AD200C7E426 /* OrderRouter.swift */,
 				B5968C8A2BD22AD200C7E426 /* OrderScreen.swift */,
@@ -416,6 +448,17 @@
 				B5968C972BD232D100C7E426 /* OrderCompleteViewModel.swift */,
 			);
 			path = OrderComplete;
+			sourceTree = "<group>";
+		};
+		B5B8364D2BD25BAB00F2A9FF /* OrderViewer */ = {
+			isa = PBXGroup;
+			children = (
+				B55E70B92BD25BE600872D3B /* OrderViewerRouter.swift */,
+				B55E70BA2BD25BE600872D3B /* OrderViewerScreen.swift */,
+				B55E70BB2BD25BE600872D3B /* OrderViewerVC.swift */,
+				B55E70BC2BD25BE600872D3B /* OrderViewerViewModel.swift */,
+			);
+			path = OrderViewer;
 			sourceTree = "<group>";
 		};
 		B5D0DEA42BBBC67300613015 = {
@@ -747,6 +790,11 @@
 				B5D0DF522BBEE7B500613015 /* MonserratFont.swift in Sources */,
 				B58056222BBFD5C6000374E9 /* ProfileVC.swift in Sources */,
 				B5D0DEE82BBBCA8700613015 /* Int.swift in Sources */,
+				B55E70BD2BD25BE600872D3B /* OrderViewerRouter.swift in Sources */,
+				B55E70BE2BD25BE600872D3B /* OrderViewerScreen.swift in Sources */,
+				B55E70BF2BD25BE600872D3B /* OrderViewerVC.swift in Sources */,
+				B55E70C02BD25BE600872D3B /* OrderViewerViewModel.swift in Sources */,
+				B55E70CC2BD262E500872D3B /* OrderCell.swift in Sources */,
 				B54950C72BCE4779000BA280 /* MKPointAnnotation.swift in Sources */,
 				B5D0DEEE2BBBCA8C00613015 /* Collection+UIView.swift in Sources */,
 				B5D0DEE62BBBCA8700613015 /* String.swift in Sources */,
@@ -780,6 +828,10 @@
 				B5968C542BCEB3C400C7E426 /* AdressShowVC.swift in Sources */,
 				B5968C552BCEB3C400C7E426 /* AdressShowViewModel.swift in Sources */,
 				B5D0DF1C2BBBE4B900613015 /* Category.swift in Sources */,
+				B55E70C62BD261CF00872D3B /* OrdersRouter.swift in Sources */,
+				B55E70C72BD261CF00872D3B /* OrdersScreen.swift in Sources */,
+				B55E70C82BD261CF00872D3B /* OrdersVC.swift in Sources */,
+				B55E70C92BD261CF00872D3B /* OrdersViewModel.swift in Sources */,
 				B5968C812BCFACB800C7E426 /* UserResponse.swift in Sources */,
 				B5D0DEF52BBBCA9300613015 /* UICollectionView+Stylable.swift in Sources */,
 				B5D0DF032BBBCA9C00613015 /* UIColor.swift in Sources */,

@@ -27,7 +27,7 @@ struct MenuItem {
 extension MenuItem {
     static let items: [MenuItem] = [
         .init(title: "Мои данные", type: "myData", icon: .init(value: .chevroneRight, tint: .primaryBase)),
-        .init(title: "Заказы", type: "ordrerd", icon: .init(value: .chevroneRight, tint: .primaryBase)),
+        .init(title: "Заказы", type: "orders", icon: .init(value: .chevroneRight, tint: .primaryBase)),
         .init(title: "Адрес", type: "address", icon: .init(value: .chevroneRight, tint: .primaryBase)),
         .init(title: "Выйти", type: "logout", icon: .init(value: .chevroneRight, tint: .primaryBase)),
     ]

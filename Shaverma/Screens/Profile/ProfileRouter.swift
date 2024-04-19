@@ -18,6 +18,10 @@ final class ProfileRouter: Router {
         navigator.push(screen: ProfileViewerScreen())
     }
 
+    func routeToOrders() {
+        navigator.push(screen: OrdersScreen())
+    }
+
     func logout() {
         navigator.makeRoot(screen: AuthScreen())
     }
