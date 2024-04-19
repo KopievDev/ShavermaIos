@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 struct TabbarScreen: Screen {
     let categories: [Category]
@@ -20,13 +21,24 @@ struct TabbarScreen: Screen {
     }
 }
 
-class Tabbar: UITabBarController {
+final class Tabbar: UITabBarController {
+
+    private var subscriptions: Set<AnyCancellable> = []
 
     init(vcs: [UIViewController]) {
         super.init(nibName: nil, bundle: nil)
         viewControllers = vcs
         setupUI()
         CartStorage.shared.start()
+        CartStorage.shared.$cartResponse
+            .sink { [weak self] resp in guard let self else { return }
+                if let count = resp?.products.count {
+                    tabBar.items?[3].badgeValue = count == 0 ? nil : "\(count)"
+                } else {
+                    tabBar.items?[3].badgeValue = nil
+                }
+
+            }.store(in: &subscriptions)
     }
 
     required init?(coder: NSCoder) {
