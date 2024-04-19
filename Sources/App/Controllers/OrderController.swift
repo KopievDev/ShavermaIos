@@ -125,7 +125,7 @@ struct OrderController: RouteCollection {
         let order = try Order(
             id: .generateRandom(),
             userId: user.requireID(),
-            totalAmount: cart.totalAmount,
+            totalAmount: cart.items.reduce(Decimal(0), { result, item in result + item.price }),
             address: address.text,
             orderNumber: currentOrder.currentOrderNumber
         )
