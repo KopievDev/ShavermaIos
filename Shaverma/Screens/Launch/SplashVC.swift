@@ -38,6 +38,7 @@ final class SplashVC: UIViewController {
 
         Task {
             await delay(1.5)
+            defer { Haptic.impact(.soft) }
             guard !ShavermaAPI.shared.token.isEmpty else {
                 Navigator.shared.makeRoot(vc: AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration))
                 return
