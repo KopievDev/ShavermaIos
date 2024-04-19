@@ -11,10 +11,6 @@ final class OrderCompleteRouter: Router {
     weak var vc: OrderCompleteVC?
 
     func routeToMenu() {
-        navigator.chain { nav in
-            nav.popToRoot() {
-                nav.select(tab: 0)
-            }
-        }
+        navigator.popToRoot()
     }
 }
