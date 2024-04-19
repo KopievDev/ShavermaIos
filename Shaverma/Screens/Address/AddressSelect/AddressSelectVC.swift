@@ -231,9 +231,25 @@ private extension AddressSelectVC {
         Task { @MainActor in
             do {
                 _ = try await viewModel.saveAddress()
-                router.goBack()
+                switch viewModel.flow {
+                case .back:
+                    router.goBack()
+                case .tabbar:
+                    routeToTabBar()
+                }
             } catch {
                 showErrorAlert(error.localizedDescription)
+            }
+        }
+    }
+
+    func routeToTabBar() {
+        Task { @MainActor in
+            do {
+                let categories = try await viewModel.categories()
+                router.routeToMain(categories: categories)
+            } catch {
+                showAlert(message: error.localizedDescription)
             }
         }
     }

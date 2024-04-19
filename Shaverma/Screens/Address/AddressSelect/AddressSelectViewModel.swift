@@ -11,6 +11,8 @@ import CoreLocation
 
 
 final class AddressSelectViewModel: NSObject {
+    enum Flow { case back, tabbar }
+    let flow: Flow
     @Published
     var address: String? = "-"
     @Published
@@ -22,6 +24,10 @@ final class AddressSelectViewModel: NSObject {
     private let locationManager = CLLocationManager()
     private let geocoder = CLGeocoder()
     private let api = ShavermaAPI.shared
+    
+    init(flow: Flow = .back) {
+        self.flow = flow
+    }
     
     func viewDidLoad() {
 
@@ -42,6 +48,10 @@ final class AddressSelectViewModel: NSObject {
 
     func getCurrentLocation() -> CLLocation? {
         locationManager.location
+    }
+
+    func categories() async throws -> [Category] {
+        try await api.categories()
     }
 
     func getAddress(for coordinate: CLLocationCoordinate2D) {

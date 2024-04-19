@@ -11,8 +11,15 @@ struct AddressSelectScreen: Screen {
 
     let addressImageBlock: ((UIImage?) -> Void)?
 
+    let flow: AddressSelectViewModel.Flow
+
+    init(flow: AddressSelectViewModel.Flow = .back, addressImageBlock: ((UIImage?) -> Void)? = nil) {
+        self.flow = flow
+        self.addressImageBlock = addressImageBlock
+    }
+
     func build() -> AddressSelectVC {
-        let viewModel = AddressSelectViewModel()
+        let viewModel = AddressSelectViewModel(flow: flow)
         let router = AddressSelectRouter()
         let vc = AddressSelectVC(viewModel: viewModel, router: router, addressImageBlock: addressImageBlock)
         vc.hidesBottomBarWhenPushed = true

@@ -181,6 +181,8 @@ private extension RegistrationVC {
                 showAlert(message: string)
             case .routeNext:
                routeToTabBar()
+            case .routeToMap:
+                router.routeToShowAddress()
             }
         }.store(in: &subscriptions)
 

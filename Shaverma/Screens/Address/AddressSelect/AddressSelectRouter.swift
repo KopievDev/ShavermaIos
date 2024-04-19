@@ -17,4 +17,8 @@ final class AddressSelectRouter: Router {
             vc?.dismiss(animated: true)
         }
     }
+    
+    func routeToMain(categories: [Category]) {
+        Navigator.shared.makeRoot(screen: TabbarScreen(categories: categories))
+    }
 }

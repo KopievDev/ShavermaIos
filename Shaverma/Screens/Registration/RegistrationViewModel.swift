@@ -12,6 +12,7 @@ final class RegistrationViewModel {
     enum ActionType {
         case error(String)
         case routeNext
+        case routeToMap
     }
     let actionPublisher = PassthroughSubject<ActionType, Never>()
 
@@ -53,7 +54,7 @@ final class RegistrationViewModel {
                     )
                 )
                 api.token = tokenResponse.token
-                actionPublisher.send(.routeNext)
+                actionPublisher.send(.routeToMap)
             } catch {
                 actionPublisher.send(.error(error.localizedDescription))
             }

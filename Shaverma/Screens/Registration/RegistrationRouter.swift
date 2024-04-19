@@ -16,4 +16,8 @@ final class RegistrationRouter: Router {
     func routeToMain(categories: [Category]) {
         Navigator.shared.makeRoot(screen: TabbarScreen(categories: categories))
     }
+
+    func routeToShowAddress() {
+        navigator.push(screen: AddressSelectScreen(flow: .tabbar))
+    }
 }
