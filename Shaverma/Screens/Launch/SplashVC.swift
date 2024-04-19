@@ -35,11 +35,13 @@ final class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        guard !ShavermaAPI.shared.token.isEmpty else {
-            Navigator.shared.makeRoot(vc: AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration))
-            return
-        }
+
         Task {
+            await delay(1.5)
+            guard !ShavermaAPI.shared.token.isEmpty else {
+                Navigator.shared.makeRoot(vc: AuthScreen().withStack(configurator: NavigationBarStyle.primary.configuration))
+                return
+            }
             do {
                 let categoies = try await ShavermaAPI.shared.categories()
                 Navigator.shared.makeRoot(vc: TabbarScreen(categories: categoies).build())
@@ -47,6 +49,10 @@ final class SplashVC: UIViewController {
                 Navigator.shared.makeRoot(vc: TabbarScreen(categories: Category.categories).build())
             }
         }
+    }
+
+    func delay(_ seconds: TimeInterval) async {
+        try? await Task<Never, Never>.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
     }
 }
 
@@ -59,7 +65,7 @@ private extension SplashVC {
         }
         appLabel.snp.makeConstraints {
             $0.left.right.equalTo(view.safeAreaInsets).inset(16)
-            $0.bottom.equalTo(view.safeAreaInsets).inset(16)
+            $0.bottom.equalTo(view.safeAreaInsets).inset(60)
         }
     }
 }

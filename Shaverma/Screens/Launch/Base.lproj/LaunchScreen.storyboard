@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Шаурма на районе" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kZ-mg-n4V">
-                                <rect key="frame" x="16" y="737" width="361" height="21"/>
+                                <rect key="frame" x="16" y="771" width="361" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" name="StaticWhiteColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,7 +27,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="PrimaryBaseColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8kZ-mg-n4V" secondAttribute="bottom" constant="60" id="NUg-9I-2uX"/>
+                            <constraint firstAttribute="bottom" secondItem="8kZ-mg-n4V" secondAttribute="bottom" constant="60" id="NUg-9I-2uX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8kZ-mg-n4V" secondAttribute="trailing" constant="16" id="o2M-xh-r7f"/>
                             <constraint firstItem="8kZ-mg-n4V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="s5b-iG-4V8"/>
                         </constraints>
