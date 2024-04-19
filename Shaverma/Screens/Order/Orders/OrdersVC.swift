@@ -25,6 +25,9 @@ final class OrdersVC: UIViewController {
         return $0
     }(UITableView())
     private let refreshControl = UIRefreshControl()
+    private let emptyView = EmptyView(
+        viewModel: .init(icon: .box, title: "Заказы отсутствуют")
+    ).alpha(0)
 
     init(
         viewModel: OrdersViewModel,
@@ -60,18 +63,29 @@ private extension OrdersVC {
     }
 
     func addSubviews() {
-        [tableView].addOnParent(view: view)
+        [tableView, emptyView].addOnParent(view: view)
     }
 
     func addConstraints() {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        emptyView.snp.makeConstraints {
+            $0.left.right.centerY.equalToSuperview()
+        }
     }
 
     func bind() {
         tableView.bind(viewModel.$orders, cellType: OrderCell.self) { index, model, cell in
             cell.render(viewModel: model)
+        }.store(in: &subscriptions)
+
+        viewModel.$orders
+            .map(\.isEmpty)
+            .sink { [weak self] isEmpty in guard let self else { return }
+                UIView.animate(withDuration: 0.2) {
+                    self.emptyView.alpha(isEmpty ? 1:0)
+                }
         }.store(in: &subscriptions)
 
         viewModel.$isLoading
