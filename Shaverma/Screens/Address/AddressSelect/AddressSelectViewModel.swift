@@ -30,7 +30,7 @@ final class AddressSelectViewModel: NSObject {
     }
     
     func viewDidLoad() {
-
+        locationManager.requestWhenInUseAuthorization()
     }
 
     func saveAddress() async throws -> AddressResponse {

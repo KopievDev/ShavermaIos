@@ -44,6 +44,9 @@ class TableVC: UIViewController, WithTable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
         [tableView].addOnParent(view: view)
 
         tableView.snp.makeConstraints {
