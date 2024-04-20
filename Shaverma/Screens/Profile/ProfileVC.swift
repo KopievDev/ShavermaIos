@@ -17,7 +17,7 @@ final class ProfileVC: UIViewController {
     private lazy var tableView: UITableView = {
         $0.register(MenuCell.self)
         $0.backgroundColor(.staticWhite)
-        $0.contentInset = .init(top: 8, left: 0, bottom: 76, right: 0)
+        $0.contentInset = .init(top: 0, left: 0, bottom: 76, right: 0)
         $0.scrollsToTop = true
         $0.delegate = self
         $0.verticalScrollIndicatorInsets.top = 8
