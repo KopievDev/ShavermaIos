@@ -26,6 +26,7 @@ final class RegistrationVC: UIViewController {
         viewModel: .init(
             placeholder: "Почта",
             validator: EmailValidator(),
+            keyboardType: .emailAddress,
             textContentType: .emailAddress
         )
     )

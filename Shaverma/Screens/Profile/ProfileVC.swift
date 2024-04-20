@@ -103,6 +103,7 @@ class MenuCell: BaseCell<MenuItem> {
     private let imgView = UIImageView(width: 24, height: 24)
 
     override func commonInit() {
+        selectionStyle = .none
         [titleLabel, imgView].addOnParent(view: contentView)
         backgroundColor(.clear)
 
