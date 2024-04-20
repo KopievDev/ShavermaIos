@@ -113,7 +113,7 @@ private final class CardImageCellView: BaseCollectionCell<PromoResponse> {
         super.layoutSubviews()
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.2
-        layer.shadowRadius = 10
+        layer.shadowRadius = 5
         layer.shadowOffset = CGSize(width: 0.0, height: 10)
         clipsToBounds = false
     }
