@@ -19,9 +19,11 @@ final class CartVC: UIViewController {
         $0.register(ProductCell.self)
         $0.contentInset = .init(top: 8, left: 0, bottom: 200, right: 0)
         $0.scrollsToTop = true
+        $0.refreshControl = refreshControl
         $0.verticalScrollIndicatorInsets.top = 8
         return $0
     }(UITableView())
+    private let refreshControl = UIRefreshControl()
     private let amountCommentLabel = UILabel(
         text: "Сумма заказа",
         font: .regular(13),
@@ -131,9 +133,16 @@ private extension CartVC {
             }
         }.store(in: &subscriptions)
 
+        refreshControl
+            .publisher(for: .valueChanged)
+            .sink(unownedObject: self) { vc, _ in
+                vc.viewModel.reload()
+            }.store(in: &subscriptions)
+
         viewModel.$items
             .map(\.isEmpty)
             .sink { [weak self] isEmpty in guard let self else { return }
+                refreshControl.endRefreshing()
                 doneButton.viewModel.isEnabled = !isEmpty
                 UIView.animate(withDuration: 0.2) {
                     self.emptyView.alpha(isEmpty ? 1:0)

@@ -23,6 +23,10 @@ final class CartViewModel {
         bind()
     }
 
+    func reload() {
+        CartStorage.shared.start()
+    }
+
     func bind() {
         CartStorage.shared.$cartResponse
             .compactMap { $0 }
