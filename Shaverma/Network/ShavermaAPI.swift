@@ -22,7 +22,7 @@ final class ShavermaAPI {
 
     static let shared = ShavermaAPI()
 
-    private var baseUrl: String { "http://shavastreet.ru/api/v1/" }
+    private var baseUrl: String { "https://shavastreet.ru/api/v1/" }
 
     private let network = BaseNetworkService()
 
